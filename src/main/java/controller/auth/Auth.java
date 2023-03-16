@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import utilsBeans.PassBasedEnc;
 
 
 
@@ -66,25 +67,31 @@ public class Auth extends HttpServlet {
 	        String password = request.getParameter("password");
 	        String passwordConfirmation = request.getParameter("password_confirmation");
 
-
-			/*
-			 * String[] mutableHash = new String[1]; Function<String, Boolean> update = hash
-			 * -> { mutableHash[0] = hash; return true; };
-			 * 
-			 * String hashPw1 = Hashing.hash(password); System.out.println(hashPw1);
-			 */
-	         
+	        String saltvalue = PassBasedEnc.getSaltvalue(30);  
+	        String encryptedpassword = PassBasedEnc.generateSecurePassword(password, saltvalue);  
+	          
+	        /* Print out plain text password, encrypted password and salt value. */  
+//	        System.out.println("Plain text password = " + password);  
+//	        System.out.println("Secure password = " + encryptedpassword);  
+//	        System.out.println("Salt value = " + saltvalue);  
+	          
+	        /* verify the original password and encrypted password */  
+//	        Boolean status = PassBasedEnc.verifyUserPassword(password,encryptedpassword,saltvalue);  
+//	        if(status==true)  
+//	            System.out.println("Password Matched!!");  
+//	        else  
+//	            System.out.println("Password Mismatched");  
 	        
-	        User user = new UserDAOImpl().register(new User(lname, fname, "provider", tel, email, "hashedPass", null, LocalDateTime.now().toString(), LocalDateTime.now().toString(), null));
+	        User user = new UserDAOImpl().register(new User(lname, fname, "provider", tel, email, encryptedpassword, null, LocalDateTime.now().toString(), LocalDateTime.now().toString(), null));
 	        HttpSession session = request.getSession();
-//
+
 	        if (user != null) {
 	            session.setAttribute("auth", user);
 	            response.sendRedirect("/view/");
 	        } else {
 	            response.sendRedirect("/login.jsp?error=Invalid credentials");
 	        }
-//	        
+	        
 	        break;
 		}
 		default:
