@@ -5,7 +5,7 @@
     <div class="aside-logo py-8" id="kt_aside_logo">
         <!--begin::Logo-->
         <a href="../../demo6/dist/index.html" class="d-flex align-items-center">
-            <img alt="Logo" src="assets/media/logos/logo-demo6.svg" class="h-45px logo" />
+            <img alt="Logo" src="<%= request.getContextPath() %>/view/assets/img/icon-deal.png" class="h-45px logo" />
         </a>
         <!--end::Logo-->
     </div>
@@ -42,7 +42,7 @@
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                <span class="menu-title">Getting Started</span>
+                                <span class="menu-title">Users List</span>
                             </a>
                         </div>
                         <div class="menu-item">
@@ -50,15 +50,38 @@
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                <span class="menu-title">Customer Listing</span>
+                                <span class="menu-title">Add New User</span>
                             </a>
                         </div>
+                    </div>
+                </div>
+                <div data-kt-menu-trigger="click" data-kt-menu-placement="right-start" class="menu-item py-2">
+                    <span class="menu-link menu-center" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
+                        <span class="menu-icon me-0">
+                            <i class="bi bi-people fs-2"></i>
+                        </span>
+                        <span class="menu-title">Properties</span>
+                    </span>
+                    <div class="menu-sub menu-sub-dropdown w-225px px-1 py-4">
                         <div class="menu-item">
-                            <a class="menu-link" href="../../demo6/dist/apps/customers/view.html">
+                            <div class="menu-content">
+                                <span class="menu-section fs-5 fw-bolder ps-1 py-1">Properties</span>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="../../demo6/dist/apps/customers/getting-started.html">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                <span class="menu-title">Customer Details</span>
+                                <span class="menu-title">Properties List</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="../../demo6/dist/apps/customers/list.html">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Add New Property</span>
                             </a>
                         </div>
                     </div>

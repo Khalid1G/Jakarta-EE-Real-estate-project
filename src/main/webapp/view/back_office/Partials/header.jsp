@@ -20,7 +20,7 @@
         <!--begin::Mobile logo-->
         <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
             <a href="../../demo6/dist/index.html" class="d-lg-none">
-                <img alt="Logo" src="assets/media/logos/logo-demo6.svg" class="h-30px" />
+                <img alt="Logo" src="<%= request.getContextPath() %>/view/assets/media/logos/logo-demo6.svg" class="h-30px" />
             </a>
         </div>
         <!--end::Mobile logo-->
@@ -44,7 +44,7 @@
                         <!--begin::Menu-->
                         <div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px" data-kt-menu="true">
                             <!--begin::Heading-->
-                            <div class="d-flex flex-column bgi-no-repeat rounded-top" style="background-image:url('assets/media/misc/pattern-1.jpg')">
+                            <div class="d-flex flex-column bgi-no-repeat rounded-top" style="background-image:url('<%= request.getContextPath() %>/view/assets/media/misc/pattern-1.jpg')">
                                 <!--begin::Title-->
                                 <h3 class="text-white fw-bold px-9 mt-10 mb-6">Notifications
                                 <span class="fs-8 opacity-75 ps-3">24 reports</span></h3>
@@ -315,7 +315,7 @@
                                         <!--end::Section-->
                                         <!--begin::Illustration-->
                                         <div class="text-center px-4">
-                                            <img class="mw-100 mh-200px" alt="image" src="assets/media/illustrations/sketchy-1/1.png" />
+                                            <img class="mw-100 mh-200px" alt="image" src="<%= request.getContextPath() %>/view/assets/media/illustrations/sketchy-1/1.png" />
                                         </div>
                                         <!--end::Illustration-->
                                     </div>
@@ -558,7 +558,7 @@
                     <div class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
                         <!--begin::Menu wrapper-->
                         <div class="cursor-pointer symbol symbol-30px symbol-md-40px" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
-                            <img src="assets/media/avatars/150-26.jpg" alt="image" />
+                            <img src="<%= request.getContextPath() %>/view/assets/media/avatars/150-26.jpg" alt="image" />
                         </div>
                         <!--begin::Menu-->
                         <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-primary fw-bold py-4 fs-6 w-275px" data-kt-menu="true">
@@ -567,7 +567,7 @@
                                 <div class="menu-content d-flex align-items-center px-3">
                                     <!--begin::Avatar-->
                                     <div class="symbol symbol-50px me-5">
-                                        <img alt="Logo" src="assets/media/avatars/150-26.jpg" />
+                                        <img alt="Logo" src="<%= request.getContextPath() %>/view/assets/media/avatars/150-26.jpg" />
                                     </div>
                                     <!--end::Avatar-->
                                     <!--begin::Username-->
