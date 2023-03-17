@@ -164,11 +164,7 @@ public class ImmobiliersDAOImpl implements ImmobiliersDAO {
 
 	}
 
-	@Override
-	public Immobiliers getImmobiliersByUser(Long proprietaireId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 	@Override
 	public void deleteImmobilier(Long id) {
@@ -180,5 +176,45 @@ public class ImmobiliersDAOImpl implements ImmobiliersDAO {
 			e.printStackTrace();
 		}
 	}
+
+	@Override
+	public List<Immobiliers> getImmobilierByType(String type) {
+		List<Immobiliers> immobiliers = new ArrayList<>();
+		try {
+			Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM immobiliers where type='"+type+"'");
+
+			while (resultSet.next()) {
+				Immobiliers immobilier = new Immobiliers(resultSet.getLong("id"), resultSet.getString("adresse"),
+						resultSet.getInt("bathroomNumber"), resultSet.getString("pay"), resultSet.getString("ville"),
+						resultSet.getString("surface"), resultSet.getInt("nbr_etage"), resultSet.getString("type"),
+						resultSet.getString("description"), resultSet.getDouble("prix"),
+						resultSet.getBoolean("disponibilite"), resultSet.getLong("proprietaire_id"),
+						resultSet.getString("created_at"), resultSet.getString("updated_at"),
+						resultSet.getString("deleted_at"));
+				immobiliers.add(immobilier);
+			}
+
+			resultSet.close();
+			statement.close();
+		} catch (SQLException e) {
+			System.out.println("Error executing query: " + e.getMessage());
+		}
+		return immobiliers;
+	}
+
+	@Override
+	public List<Immobiliers> getImmobilierByCity(String city) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Immobiliers> getImmobilierByKeyWord(String KeyWord) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 
 }
