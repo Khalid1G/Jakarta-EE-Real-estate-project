@@ -13,6 +13,7 @@ public class User implements Serializable {
 	private String tel;
 	private String email;
 	private String password;
+	private String salt;
 	private String avatar;
 	private String created_at;
 	private String updated_at;
@@ -25,12 +26,12 @@ public class User implements Serializable {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", role=" + role + ", tel=" + tel
-				+ ",  email=" + email + ", password=" + password + ", avatar=" + avatar
+				+ ",  email=" + email + ", password=" + password +", salt="+salt+ ", avatar=" + avatar
 				+ ", created_at=" + created_at + ", updated_at=" + updated_at + ", deleted_at=" + deleted_at + "]";
 	}
 
 	public User(long id, String nom, String prenom, String role, String tel, String email,
-			String password, String avatar, String created_at, String updated_at, String deleted_at) {
+			String password,String salt, String avatar, String created_at, String updated_at, String deleted_at) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -39,13 +40,14 @@ public class User implements Serializable {
 		this.tel = tel;
 		this.email = email;
 		this.password = password;
+		this.salt = salt;
 		this.avatar = avatar;
 		this.created_at = created_at;
 		this.updated_at = updated_at;
 		this.deleted_at = deleted_at;
 	}
 
-	public User(String nom, String prenom, String role, String tel, String email, String password,
+	public User(String nom, String prenom, String role, String tel, String email, String password,String salt,
 			String avatar, String created_at, String updated_at, String deleted_at) {
 		super();
 		this.nom = nom;
@@ -54,6 +56,7 @@ public class User implements Serializable {
 		this.tel = tel;
 		this.email = email;
 		this.password = password;
+		this.salt = salt;
 		this.avatar = avatar;
 		this.created_at = created_at;
 		this.updated_at = updated_at;
@@ -110,6 +113,14 @@ public class User implements Serializable {
 
 	public String getPassword() {
 		return password;
+	}
+
+	public String getSalt() {
+		return salt;
+	}
+
+	public void setSalt(String salt) {
+		this.salt = salt;
 	}
 
 	public void setPassword(String password) {

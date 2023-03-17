@@ -17,6 +17,10 @@
 .btn-outline-info:hover {
 	color: #FFF;
 }
+
+.form-control:focus{
+    outline: 2px solid var(--bs-info) !important;
+}
 </style>
 </head>
 

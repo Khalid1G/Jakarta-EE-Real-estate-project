@@ -8,9 +8,10 @@ import java.sql.Statement;
 
 public class ConnectionFactory {
 	
-//	 public static final String URL = "com.mysql.jdbc.Driver/immobilier";
-//	 public static final String USER = "root";
-//	 public static final String PASSWORD = "";
+	 public static final String URL = "jdbc:mysql://localhost:3306";
+	 public static final String DB = "immobilier";
+	 public static final String USER = "root";
+	 public static final String PASSWORD = "";
 	 public static final String DRIVER_CLASS = "com.mysql.jdbc.Driver"; 
 
 	private ConnectionFactory() throws SQLException {
@@ -23,9 +24,7 @@ public class ConnectionFactory {
 		if (conn == null)
 			try {
 				Class.forName(DRIVER_CLASS);
-				conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/immobilier","root","");
-				System.out.println(conn);
-				return conn ;
+				return DriverManager.getConnection(URL+"/"+DB,USER,PASSWORD);
 	
 			} catch (ClassNotFoundException | SQLException e) {
 				e.printStackTrace();

@@ -19,7 +19,7 @@ public class UserDAOImpl implements UserDAO {
     public User register(User user) {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(
-                    "INSERT INTO users(nom, prenom, role, tel, email, password, created_at, updated_at, deleted_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                    "INSERT INTO users(nom, prenom, role, tel, email, password,salt, created_at, updated_at, deleted_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             preparedStatement.setString(1, user.getNom());
             preparedStatement.setString(2, user.getPrenom());
@@ -27,9 +27,10 @@ public class UserDAOImpl implements UserDAO {
             preparedStatement.setString(4, user.getTel());
             preparedStatement.setString(5, user.getEmail());
             preparedStatement.setString(6, user.getPassword());
-            preparedStatement.setString(7, user.getCreated_at());
-            preparedStatement.setString(8, user.getUpdated_at());
-            preparedStatement.setString(9, user.getDeleted_at());
+            preparedStatement.setString(7, user.getSalt());
+            preparedStatement.setString(8, user.getCreated_at());
+            preparedStatement.setString(9, user.getUpdated_at());
+            preparedStatement.setString(10, user.getDeleted_at());
 
             preparedStatement.executeUpdate();
             return user;
@@ -38,43 +39,7 @@ public class UserDAOImpl implements UserDAO {
             return null;
         }
     }
-    public User login(String email, String password) {
 
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        try {
-
-            String sql = "SELECT * FROM users WHERE email = ? AND password = ?";
-            stmt = connection.prepareStatement(sql);
-            stmt.setString(1, email);
-            stmt.setString(2, password);
-            rs = stmt.executeQuery();
-            
-           
-            if (rs.next()) {
-            	 System.out.println();
-            	 User user = new User();
-                user.setId(rs.getLong("id"));
-                user.setNom(rs.getString("nom"));
-                user.setPrenom(rs.getString("prenom"));
-                user.setRole(rs.getString("role"));
-                user.setTel(rs.getString("tel"));
-                user.setAvatar(rs.getString("avatar"));
-                user.setCreated_at(rs.getString("created_at"));
-                user.setUpdated_at(rs.getString("updated_at"));
-                user.setDeleted_at(rs.getString("deleted_at"));
-                
-                return user;
-            } else {
-                return null;
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-            return null;
-        } finally {
-        	ConnectionFactory.closeConnexion(connection);
-        }
-    }
 
     @Override
     public void deleteUser(Long userId) {
@@ -91,19 +56,15 @@ public class UserDAOImpl implements UserDAO {
     public void updateUser(User user) {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(
-                    "UPDATE users SET nom=?, prenom=?, role=?, tel=?, adress=?, email=?, password=?, avatar=?, created_at=?, updated_at=?, deleted_at=? WHERE id=?");
+                    "UPDATE users SET nom=?, prenom=?, role=?, tel=?, avatar=?, updated_at=? WHERE id=?");
 
             preparedStatement.setString(1, user.getNom());
             preparedStatement.setString(2, user.getPrenom());
             preparedStatement.setString(3, user.getRole());
             preparedStatement.setString(4, user.getTel());
-            preparedStatement.setString(5, user.getEmail());
-            preparedStatement.setString(6, user.getPassword());
-            preparedStatement.setString(7, user.getAvatar());
-            preparedStatement.setString(8, user.getCreated_at());
-            preparedStatement.setString(9, user.getUpdated_at());
-            preparedStatement.setString(10, user.getDeleted_at());
-            preparedStatement.setLong(11, user.getId());
+            preparedStatement.setString(5, user.getAvatar());
+            preparedStatement.setString(6, user.getUpdated_at());
+            preparedStatement.setLong(7, user.getId());
 
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -121,7 +82,7 @@ public class UserDAOImpl implements UserDAO {
             if (rs.next()) {
                 user = new User(rs.getLong("id"), rs.getString("nom"), rs.getString("prenom"),
                         rs.getString("role"), rs.getString("tel"), rs.getString("email"),
-                        rs.getString("password"), rs.getString("avatar"), rs.getString("created_at"),
+                        rs.getString("password"),  rs.getString("salt"),rs.getString("avatar"), rs.getString("created_at"),
                         rs.getString("updated_at"), rs.getString("deleted_at"));
             }
         } catch (SQLException e) {
@@ -141,7 +102,7 @@ public class UserDAOImpl implements UserDAO {
             if (rs.next()) {
                 user = new User(rs.getLong("id"), rs.getString("nom"), rs.getString("prenom"),
                         rs.getString("role"), rs.getString("tel"), rs.getString("email"),
-                        rs.getString("password"), rs.getString("avatar"), rs.getString("created_at"),
+                        rs.getString("password"), rs.getString("salt"), rs.getString("avatar"), rs.getString("created_at"),
                         rs.getString("updated_at"), rs.getString("deleted_at"));
             }
         } catch (SQLException e) {

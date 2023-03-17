@@ -85,6 +85,7 @@ public class PassBasedEnc
           
         /* generates the Salt value. It can be stored in a database. */  
         String saltvalue = PassBasedEnc.getSaltvalue(30);  
+        String saltvalue2 = PassBasedEnc.getSaltvalue(30);  
           
         /* generates an encrypted password. It can be stored in a database.*/  
         String encryptedpassword = PassBasedEnc.generateSecurePassword(password, saltvalue);  
@@ -95,7 +96,7 @@ public class PassBasedEnc
         System.out.println("Salt value = " + saltvalue);  
           
         /* verify the original password and encrypted password */  
-        Boolean status = PassBasedEnc.verifyUserPassword(password,encryptedpassword,saltvalue);  
+        Boolean status = PassBasedEnc.verifyUserPassword(password,encryptedpassword,saltvalue2);  
         if(status==true)  
             System.out.println("Password Matched!!");  
         else  

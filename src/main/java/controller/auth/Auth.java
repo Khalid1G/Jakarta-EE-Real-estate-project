@@ -13,90 +13,91 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import utilsBeans.PassBasedEnc;
 
-
-
 @WebServlet("/auth")
 public class Auth extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Auth() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public Auth() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-	    switch (request.getParameter("action")) {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		switch (request.getParameter("action")) {
 		case "login": {
-			
+
 			String email = request.getParameter("email");
-	        String password = request.getParameter("password");
+			String password = request.getParameter("password");
 
-	        User user = new UserDAOImpl().login(email, password);
-	        HttpSession session = request.getSession();
+			User user = new UserDAOImpl().getUserByEmail(email);
+			if (user != null) {
 
-	        if (user != null) {
-	            session.setAttribute("auth", user);
-	            response.sendRedirect("/view/");
-	        } else {
-	            response.sendRedirect("/login.jsp?error=Invalid credentials");
-	        }
-	        
-	        break;
-		}case "signup":{
+				String saltvalue = user.getSalt();
+				String encryptedpassword = user.getPassword();
+				/* verify the original password and encrypted password */
+				Boolean status = PassBasedEnc.verifyUserPassword(password, encryptedpassword, saltvalue);
+
+				if (status) {
+					HttpSession session = request.getSession();
+					session.setAttribute("auth", user);
+					response.sendRedirect("/view/");
+					System.out.println(user);
+				} else
+					response.sendRedirect("/login.jsp?error=Invalid credentials");
+			} else {
+				response.sendRedirect("/login.jsp?error=Invalid credentials");
+			}
+
+			break;
+		}
+		case "signup": {
 
 			String fname = request.getParameter("fname");
 			String lname = request.getParameter("lname");
 			String email = request.getParameter("email");
-			String tel = request.getParameter("tel");			
-	        String password = request.getParameter("password");
-	        String passwordConfirmation = request.getParameter("password_confirmation");
+			String tel = request.getParameter("tel");
+			String password = request.getParameter("password");
+			String passwordConfirmation = request.getParameter("password_confirmation");
 
-	        String saltvalue = PassBasedEnc.getSaltvalue(30);  
-	        String encryptedpassword = PassBasedEnc.generateSecurePassword(password, saltvalue);  
-	          
-	        /* Print out plain text password, encrypted password and salt value. */  
-//	        System.out.println("Plain text password = " + password);  
-//	        System.out.println("Secure password = " + encryptedpassword);  
-//	        System.out.println("Salt value = " + saltvalue);  
-	          
-	        /* verify the original password and encrypted password */  
-//	        Boolean status = PassBasedEnc.verifyUserPassword(password,encryptedpassword,saltvalue);  
-//	        if(status==true)  
-//	            System.out.println("Password Matched!!");  
-//	        else  
-//	            System.out.println("Password Mismatched");  
-	        
-	        User user = new UserDAOImpl().register(new User(lname, fname, "provider", tel, email, encryptedpassword, null, LocalDateTime.now().toString(), LocalDateTime.now().toString(), null));
-	        HttpSession session = request.getSession();
+			String saltvalue = PassBasedEnc.getSaltvalue(30);
+			String encryptedpassword = PassBasedEnc.generateSecurePassword(password, saltvalue);
 
-	        if (user != null) {
-	            session.setAttribute("auth", user);
-	            response.sendRedirect("/view/");
-	        } else {
-	            response.sendRedirect("/login.jsp?error=Invalid credentials");
-	        }
-	        
-	        break;
+			User user = new UserDAOImpl().register(new User(lname, fname, "provider", tel, email, encryptedpassword,
+					saltvalue, null, LocalDateTime.now().toString(), LocalDateTime.now().toString(), null));
+			HttpSession session = request.getSession();
+
+			if (user != null) {
+				session.setAttribute("auth", user);
+				response.sendRedirect("/view/");
+			} else {
+				response.sendRedirect("/login.jsp?error=Invalid credentials");
+			}
+
+			break;
 		}
 		default:
-			 response.sendRedirect(request.getContextPath());
+			response.sendRedirect(request.getContextPath());
 		}
-	    
+
 	}
 }
