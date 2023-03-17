@@ -1,6 +1,7 @@
 package controller.auth;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.time.LocalDateTime;
 
 import Beans.User;
@@ -17,28 +18,9 @@ import utilsBeans.PassBasedEnc;
 public class Auth extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
 	public Auth() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -54,7 +36,7 @@ public class Auth extends HttpServlet {
 
 				String saltvalue = user.getSalt();
 				String encryptedpassword = user.getPassword();
-				/* verify the original password and encrypted password */
+
 				Boolean status = PassBasedEnc.verifyUserPassword(password, encryptedpassword, saltvalue);
 
 				if (status) {
@@ -62,10 +44,11 @@ public class Auth extends HttpServlet {
 					session.setAttribute("auth", user);
 					response.sendRedirect("/view/");
 					System.out.println(user);
-				} else
-					response.sendRedirect("/login.jsp?error=Invalid credentials");
+				} else {
+					response.sendRedirect(request.getContextPath() +"/view/login.jsp?error=Invalid credentials");	
+				}
 			} else {
-				response.sendRedirect("/login.jsp?error=Invalid credentials");
+				response.sendRedirect(request.getContextPath() +"/view/login.jsp?error=Invalid credentials");
 			}
 
 			break;
@@ -92,12 +75,10 @@ public class Auth extends HttpServlet {
 			} else {
 				response.sendRedirect("/login.jsp?error=Invalid credentials");
 			}
-
 			break;
 		}
 		default:
 			response.sendRedirect(request.getContextPath());
 		}
-
 	}
 }
