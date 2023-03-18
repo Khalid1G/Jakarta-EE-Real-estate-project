@@ -33,6 +33,8 @@
 		<script src="<%= request.getContextPath() %>/view/assets/plugins/global/plugins.bundle.js"></script>
 		<script src="<%= request.getContextPath() %>/view/assets/js/scripts.bundle.js"></script>
 		<!--end::Global Javascript Bundle-->
+		
+		<script src="<%= request.getContextPath()%>/view/assets/js/custom/account/settings/signin-methods.js"></script>
 		<!--end::Javascript-->
 	</body>
 	<!--end::Body-->
