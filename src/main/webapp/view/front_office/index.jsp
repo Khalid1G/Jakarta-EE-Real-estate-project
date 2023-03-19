@@ -35,7 +35,7 @@
 							stunning properties that cater to your family's every need. From
 							spacious living areas to convenient locations, we have everything
 							you need to find your dream home..</p>
-						<a href="" class="btn btn-primary py-3 px-5 me-3 animated fadeIn">Get
+						<a href="${pageContext.request.contextPath}/property" class="btn btn-primary py-3 px-5 me-3 animated fadeIn">Get
 							Started</a>
 					</div>
 					<div class="col-md-6 animated fadeIn">
@@ -101,7 +101,7 @@
 					</div>
 					<div class="row g-4">
 						<div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-							<a class="cat-item d-block bg-light text-center rounded p-3" href="">
+							<a class="cat-item d-block bg-light text-center rounded p-3" href="${pageContext.request.contextPath}/property?property_type=apartment">
 								<div class="rounded p-4">
 									<div class="icon mb-3">
 										<img class="img-fluid" src="${pageContext.request.contextPath}/view/assets/img/icon-apartment.png"
@@ -113,7 +113,7 @@
 							</a>
 						</div>
 						<div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-							<a class="cat-item d-block bg-light text-center rounded p-3" href="">
+							<a class="cat-item d-block bg-light text-center rounded p-3" href="${pageContext.request.contextPath}/property?property_type=villa">
 								<div class="rounded p-4">
 									<div class="icon mb-3">
 										<img class="img-fluid" src="${pageContext.request.contextPath}/view/assets/img/icon-villa.png"
@@ -125,7 +125,7 @@
 							</a>
 						</div>
 						<div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-							<a class="cat-item d-block bg-light text-center rounded p-3" href="">
+							<a class="cat-item d-block bg-light text-center rounded p-3" href="${pageContext.request.contextPath}/property?property_type=home">
 								<div class="rounded p-4">
 									<div class="icon mb-3">
 										<img class="img-fluid" src="${pageContext.request.contextPath}/view/assets/img/icon-house.png"
@@ -137,7 +137,7 @@
 							</a>
 						</div>
 						<div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-							<a class="cat-item d-block bg-light text-center rounded p-3" href="">
+							<a class="cat-item d-block bg-light text-center rounded p-3" href="${pageContext.request.contextPath}/property?property_type=office">
 								<div class="rounded p-4">
 									<div class="icon mb-3">
 										<img class="img-fluid" src="${pageContext.request.contextPath}/view/assets/img/icon-housing.png"
@@ -149,7 +149,7 @@
 							</a>
 						</div>
 						<div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-							<a class="cat-item d-block bg-light text-center rounded p-3" href="">
+							<a class="cat-item d-block bg-light text-center rounded p-3" href="${pageContext.request.contextPath}/property?property_type=building">
 								<div class="rounded p-4">
 									<div class="icon mb-3">
 										<img class="img-fluid" src="${pageContext.request.contextPath}/view/assets/img/icon-building.png"
@@ -161,7 +161,7 @@
 							</a>
 						</div>
 						<div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-							<a class="cat-item d-block bg-light text-center rounded p-3" href="">
+							<a class="cat-item d-block bg-light text-center rounded p-3" href="${pageContext.request.contextPath}/property?property_type=townhouse">
 								<div class="rounded p-4">
 									<div class="icon mb-3">
 										<img class="img-fluid"
@@ -173,7 +173,7 @@
 							</a>
 						</div>
 						<div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-							<a class="cat-item d-block bg-light text-center rounded p-3" href="">
+							<a class="cat-item d-block bg-light text-center rounded p-3" href="${pageContext.request.contextPath}/property?property_type=shop">
 								<div class="rounded p-4">
 									<div class="icon mb-3">
 										<img class="img-fluid" src="${pageContext.request.contextPath}/view/assets/img/icon-condominium.png"
@@ -185,7 +185,7 @@
 							</a>
 						</div>
 						<div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-							<a class="cat-item d-block bg-light text-center rounded p-3" href="">
+							<a class="cat-item d-block bg-light text-center rounded p-3" href="${pageContext.request.contextPath}/property?property_type=garage">
 								<div class="rounded p-4">
 									<div class="icon mb-3">
 										<img class="img-fluid" src="${pageContext.request.contextPath}/view/assets/img/icon-luxury.png"

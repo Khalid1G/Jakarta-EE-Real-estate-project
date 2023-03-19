@@ -15,7 +15,6 @@ public class ImmobilierServlet extends HttpServlet {
 
 	public ImmobilierServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -62,8 +61,8 @@ public class ImmobilierServlet extends HttpServlet {
 		String max_floor = request.getParameter("max_floor");
 		String min_price = request.getParameter("min_price");
 		String max_price = request.getParameter("max_price");
-		String min_room_number = request.getParameter("max_room_nbr");
-		String max_room_number = request.getParameter("min_room_nbr");
+		String min_room_number = request.getParameter("min_room_nbr");
+		String max_room_number = request.getParameter("max_room_nbr");
 		String ville = request.getParameter("ville");
 		String keyword = request.getParameter("keyword");
 

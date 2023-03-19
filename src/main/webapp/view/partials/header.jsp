@@ -19,19 +19,18 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<div class="navbar-nav ms-auto">
-					<a href="index.html" class="nav-item nav-link active">Home</a>
+					<a href="${ pageContext.request.contextPath}/home" class="nav-item nav-link active">Home</a>
 					<div class="nav-item dropdown">
 						<a href="#" class="nav-link dropdown-toggle"
 							data-bs-toggle="dropdown">Property</a>
 						<div class="dropdown-menu rounded-0 m-0">
-
 							<c:forEach items="${proprtyTypes}" var="type">
-								<a href="property-agent.html" class="dropdown-item">${type}</a>
+								<a href="${pageContext.request.contextPath}/property?property_type=${type}" class="dropdown-item">${type}</a>
 							</c:forEach>
 						</div>
 					</div>
 				</div>
-				<a href="" class="btn btn-primary px-3 d-none d-lg-flex">Add
+				<a href="${pageContext.request.contextPath}/agent" class="btn btn-primary px-3 d-none d-lg-flex">Add
 					Property</a>
 			</div>
 		</div>

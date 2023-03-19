@@ -53,7 +53,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>DashboardServlet</servlet-name>
-    <url-pattern>/agenet</url-pattern>
+    <url-pattern>/agent</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>

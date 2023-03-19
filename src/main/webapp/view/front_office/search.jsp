@@ -58,7 +58,7 @@
 									<select class="form-select border-0 py-3" name="property_type">
 										<option selected="" value="">Property Type</option>
 										<c:forEach items="${proprtyTypes}" var="type">
-											<option>${type}</option>
+											<option <c:if test="${type.equals(param.property_type)}">selected</c:if>>${type}</option>
 										</c:forEach>
 									</select>
 								</div>
@@ -66,7 +66,7 @@
 									<select class="form-select border-0 py-3" name="ville">
 										<option selected value="">Location</option>
 										<c:forEach items="${villes}" var="ville" >
-											<option>${ville}</option>
+											<option <c:if test="${ville.equals(param.ville)}">selected</c:if>>${ville}</option>
 										</c:forEach>
 									</select>
 								</div>
@@ -103,15 +103,14 @@
 										class="d-flex flex-column gap-3"
 										id="advanced-search-form" onsubmit="return mergeSearchParams();"
 										>
-
 										<div>
 											<label for="listing_type" class="form-label">listing
 												type</label> <select class="form-select" id="listing_type"
 												name="listing_type">
 												<option selected value="">Choose type</option>
-												<option value="Featured">Featured</option>
-												<option value="For Sell">For Sell</option>
-												<option value="For Rent">For Rent</option>
+												<option value="Featured" <c:if test='${ "Featured".equals(param.listing_type)}'>selected</c:if>>Featured</option>
+												<option value="For Sell" <c:if test='${ "For Sell".equals(param.listing_type)}'>selected</c:if>>For Sell</option>
+												<option value="For Rent" <c:if test='${ "For Rent".equals(param.listing_type)}'>selected</c:if>>For Rent</option>
 											</select>
 										</div>
 
