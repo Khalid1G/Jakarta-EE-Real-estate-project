@@ -68,6 +68,12 @@ public class Image {
 	public Image() {
 		super();
 	}
+
+	@Override
+	public String toString() {
+		return "Image [id=" + id + ", imageableOwnerId=" + imageableOwnerId + ", path=" + path + ", createdAt="
+				+ createdAt + ", updatedAt=" + updatedAt + ", deletedAt=" + deletedAt + "]";
+	}
     
     
 }

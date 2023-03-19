@@ -19,6 +19,16 @@
     <servlet-name>Auth</servlet-name>
     <url-pattern>/Auth</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ImmobiliersConroller</display-name>
+    <servlet-name>ImmobiliersConroller</servlet-name>
+    <servlet-class>controller.auth.HomeController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ImmobiliersConroller</servlet-name>
+    <url-pattern>/home</url-pattern>
+  </servlet-mapping>
   <jsp-config>
     <jsp-property-group>
       <url-pattern>*.jsp</url-pattern>
@@ -27,12 +37,42 @@
   </jsp-config>
   <servlet>
     <description></description>
-    <display-name>ImmobiliersConroller</display-name>
-    <servlet-name>ImmobiliersConroller</servlet-name>
-    <servlet-class>controller.auth.ImmobiliersConroller</servlet-class>
+    <display-name>ImmobilierServlet</display-name>
+    <servlet-name>ImmobilierServlet</servlet-name>
+    <servlet-class>controller.immobilier.ImmobilierServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ImmobiliersConroller</servlet-name>
-    <url-pattern>/property</url-pattern>
+    <servlet-name>ImmobilierServlet</servlet-name>
+    <url-pattern>/immobiliers</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DashboardServlet</display-name>
+    <servlet-name>DashboardServlet</servlet-name>
+    <servlet-class>controller.backoffice.DashboardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DashboardServlet</servlet-name>
+    <url-pattern>/agenet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PropertyServlet</display-name>
+    <servlet-name>PropertyServlet</servlet-name>
+    <servlet-class>controller.backoffice.PropertyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PropertyServlet</servlet-name>
+    <url-pattern>/properties</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProfileServlet</display-name>
+    <servlet-name>ProfileServlet</servlet-name>
+    <servlet-class>controller.backoffice.ProfileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProfileServlet</servlet-name>
+    <url-pattern>/profile</url-pattern>
   </servlet-mapping>
 </web-app>

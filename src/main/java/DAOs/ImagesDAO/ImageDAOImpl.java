@@ -50,7 +50,7 @@ public class ImageDAOImpl implements ImageDAO {
     }
 
     @Override
-    public void deleteImage(Long id) {
+    public void deleteImage(long id) {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM images WHERE id=?");
             preparedStatement.setLong(1, id);
@@ -61,7 +61,7 @@ public class ImageDAOImpl implements ImageDAO {
     }
 
     @Override
-    public Image getImageById(Long id) {
+    public Image getImageById(long id) {
         Image image = new Image();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM images WHERE id=?");
@@ -103,5 +103,28 @@ public class ImageDAOImpl implements ImageDAO {
         }
         return null;
     }
+
+	@Override
+	public List<Image> getAllImagesByImmobilier(long id) {
+		List < Image > images = new ArrayList < > ();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM immobilier.images where imageable_owner_id = "+id);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                Image image = new Image();
+                image.setId(rs.getLong("id"));
+                image.setImageableOwnerId(rs.getLong("imageable_owner_id"));
+                image.setPath(rs.getString("path"));
+                image.setCreatedAt(rs.getString("created_at"));
+                image.setUpdatedAt(rs.getString("updated_at"));
+                image.setDeletedAt(rs.getString("deleted_at"));
+                images.add(image);
+            }
+            return images;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+	}
 
 }

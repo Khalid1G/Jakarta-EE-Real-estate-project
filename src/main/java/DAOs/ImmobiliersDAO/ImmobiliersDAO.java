@@ -16,5 +16,6 @@ public interface ImmobiliersDAO {
 	public List<Immobiliers> getImmobilierByKeyWord(String KeyWord);
 	public List<Immobiliers> getAllImmobilirs();
 	public List<Immobiliers> getImmobilierByUser(Long proprietaireId);
-	
+	public List<Immobiliers> getImmobilierByListingType(String listingType);
+	public List<?> getImmobilierAttribute(String attr);
 }
