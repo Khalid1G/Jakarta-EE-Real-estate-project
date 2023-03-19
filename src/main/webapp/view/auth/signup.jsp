@@ -6,10 +6,10 @@
 		<meta charset="utf-8">
 		<title>Ghazwa Immobilier</title>
 		<meta content="width=device-width, initial-scale=1.0" name="viewport">
-		<link href="assets/img/favicon.ico" rel="icon">
+		<link href="${pageContext.request.contextPath}/view/assets/img/favicon.ico" rel="icon">
 		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
-		<link href="assets/css/bootstrap.min.css" rel="stylesheet">
-		<link href="assets/css/login.css" rel="stylesheet">
+		<link href="${pageContext.request.contextPath}/view/assets/css/bootstrap.min.css" rel="stylesheet">
+		<link href="${pageContext.request.contextPath}/view/assets/css/login.css" rel="stylesheet">
 		<style type="text/css">
 			.btn-outline-info:hover {
 				color: #FFF;
@@ -19,7 +19,7 @@
 
 	<body>
 		<div class="d-lg-flex half">
-			<div class="bg order-1 order-md-2" style="background-image: url('assets/img/signup.jpg');"></div>
+			<div class="bg order-1 order-md-2" style="background-image: url('${pageContext.request.contextPath}/view/assets/img/signup.jpg');"></div>
 			<div class="contents order-2 order-md-1">
 				<div class="container">
 					<div class="row align-items-center justify-content-center ">
@@ -33,7 +33,7 @@
 							</h3>
 							<p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit
 								aut eos consectetur adipisicing.</p>
-							<form action="#" method="post" class="d-flex flex-column gap-3">
+							<form action="${pageContext.request.contextPath}/signup" method="post" class="d-flex flex-column gap-3">
 								<div class="form-group first">
 									<label for="fname">First name</label> <input type="text" class="form-control"
 										placeholder="your first name" id="fname" name="fname">
@@ -59,7 +59,7 @@
 
 								<input type="submit" value="Sign up" class="btn btn-block btn-outline-info">
 
-								<span> Already have an account ? <a href="./login.jsp">Sign in</a>
+								<span> Already have an account ? <a href="${pageContext.request.contextPath}/login">Sign in</a>
 								</span>
 							</form>
 						</div>
