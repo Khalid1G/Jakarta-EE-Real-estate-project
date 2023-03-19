@@ -43,7 +43,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ImmobilierServlet</servlet-name>
-    <url-pattern>/immobiliers</url-pattern>
+    <url-pattern>/property</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>

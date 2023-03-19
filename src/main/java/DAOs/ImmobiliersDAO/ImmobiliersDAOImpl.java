@@ -264,4 +264,36 @@ public class ImmobiliersDAOImpl implements ImmobiliersDAO {
 		return immobiliers;
 	}
 
+	@Override
+	public List<Immobiliers> getImmobilierBySearchQuery(String query) {
+
+		List<Immobiliers> immobiliers = new ArrayList<>();
+		StringBuilder sqlQuery = new StringBuilder();
+		try {
+			Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery(query);
+
+			while (resultSet.next()) {
+				Immobiliers immobilier = new Immobiliers(resultSet.getLong("id"), resultSet.getString("title"),
+						resultSet.getString("adresse"), resultSet.getString("surface"), resultSet.getString("pay"),
+						resultSet.getString("ville"), resultSet.getInt("bathroomNumber"), resultSet.getInt("nbr_etage"),
+						resultSet.getString("type"), resultSet.getString("description"), resultSet.getDouble("prix"),
+						resultSet.getBoolean("disponibilite"), resultSet.getLong("proprietaire_id"),
+						resultSet.getString("listing_type"),
+						new ImageDAOImpl().getAllImagesByImmobilier(resultSet.getLong("id")),
+						resultSet.getInt("room_nbr"),
+						resultSet.getString("created_at"), resultSet.getString("updated_at"),
+						resultSet.getString("deleted_at"));
+				immobiliers.add(immobilier);
+			}
+
+			resultSet.close();
+			statement.close();
+		} catch (SQLException e) {
+			System.out.println("Error executing query: " + e.getMessage());
+		}
+		return immobiliers;
+		
+	}
+
 }
