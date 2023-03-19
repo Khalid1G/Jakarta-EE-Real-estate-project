@@ -192,7 +192,9 @@
 									<div class="property-item rounded overflow-hidden">
 										<div class="position-relative overflow-hidden">
 											<a href=""><img class="img-fluid"
-												src="${pageContext.request.contextPath}/view/assets/img/<c:out value="${property.images[0].path }">placeholderIHome.jpg</c:out>"
+<%-- 												src="${pageContext.request.contextPath}/view/assets/img/<c:out value="${property.images[0].path }">placeholderIHome.jpg</c:out>" --%>
+																								src="<c:out value="${property.images[0].path }">placeholderIHome.jpg</c:out>"
+												
 												alt=""></a>
 											<div
 												class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
@@ -265,14 +267,14 @@
 
 		  // Merge the parameters
 		  const mergedParams = new URLSearchParams();
-		  console.log('hi');
+
 		  for (const [key, value] of simpleSearchParams) {
 		    mergedParams.set(key, value);
-		    console.log('hi');
+
 		  }
 		  for (const [key, value] of advancedSearchParams) {
 		    mergedParams.set(key, value);
-		    console.log('hi');
+
 		  }
 		  
 		  console.log(mergedParams.toString());

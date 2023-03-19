@@ -30,16 +30,26 @@ public class ImmobiliersDAOImpl implements ImmobiliersDAO {
 			ResultSet resultSet = statement.executeQuery("SELECT * FROM immobiliers");
 
 			while (resultSet.next()) {
-				Immobiliers immobilier = new Immobiliers(resultSet.getLong("id"), resultSet.getString("title"),
-						resultSet.getString("adresse"), resultSet.getString("surface"), resultSet.getString("pay"),
-						resultSet.getString("ville"), resultSet.getInt("bathroomNumber"), resultSet.getInt("nbr_etage"),
-						resultSet.getString("type"), resultSet.getString("description"), resultSet.getDouble("prix"),
-						resultSet.getBoolean("disponibilite"), resultSet.getLong("proprietaire_id"),
+				Immobiliers immobilier = new Immobiliers(
+						resultSet.getLong("id"), 
+						resultSet.getString("title"),
+						resultSet.getString("adresse"), 
+						resultSet.getString("pay"),
+						resultSet.getString("ville"),
+						resultSet.getInt("surface"),
+						resultSet.getInt("bathroomNumber"),
+						resultSet.getInt("nbr_etage"),
+						resultSet.getString("type"),
+						resultSet.getString("description"),
+						resultSet.getDouble("prix"),
+						resultSet.getBoolean("disponibilite"),
+						resultSet.getLong("proprietaire_id"),
 						resultSet.getString("listing_type"),
 						new ImageDAOImpl().getAllImagesByImmobilier(resultSet.getLong("id")),
 						resultSet.getInt("room_nbr"),
 						resultSet.getString("created_at"), resultSet.getString("updated_at"),
-						resultSet.getString("deleted_at"));
+						resultSet.getString("deleted_at")
+						);
 				immobiliers.add(immobilier);
 			}
 
@@ -79,16 +89,26 @@ public class ImmobiliersDAOImpl implements ImmobiliersDAO {
 			ResultSet resultSet = preparedStatement.executeQuery();
 
 			if (resultSet.next()) {
-				immobilier = new Immobiliers(resultSet.getLong("id"), resultSet.getString("title"),
-						resultSet.getString("adresse"), resultSet.getString("surface"), resultSet.getString("pay"),
-						resultSet.getString("ville"), resultSet.getInt("bathroomNumber"), resultSet.getInt("nbr_etage"),
-						resultSet.getString("type"), resultSet.getString("description"), resultSet.getDouble("prix"),
-						resultSet.getBoolean("disponibilite"), resultSet.getLong("proprietaire_id"),
+				immobilier = new Immobiliers(
+						resultSet.getLong("id"), 
+						resultSet.getString("title"),
+						resultSet.getString("adresse"), 
+						resultSet.getString("pay"),
+						resultSet.getString("ville"),
+						resultSet.getInt("surface"),
+						resultSet.getInt("bathroomNumber"),
+						resultSet.getInt("nbr_etage"),
+						resultSet.getString("type"),
+						resultSet.getString("description"),
+						resultSet.getDouble("prix"),
+						resultSet.getBoolean("disponibilite"),
+						resultSet.getLong("proprietaire_id"),
 						resultSet.getString("listing_type"),
 						new ImageDAOImpl().getAllImagesByImmobilier(resultSet.getLong("id")),
 						resultSet.getInt("room_nbr"),
 						resultSet.getString("created_at"), resultSet.getString("updated_at"),
-						resultSet.getString("deleted_at"));
+						resultSet.getString("deleted_at")
+						);
 			}
 
 			resultSet.close();
@@ -108,16 +128,26 @@ public class ImmobiliersDAOImpl implements ImmobiliersDAO {
 			preparedStatement.setLong(1, proprietaireId);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
-				Immobiliers immobilier = new Immobiliers(resultSet.getLong("id"), resultSet.getString("title"),
-						resultSet.getString("adresse"), resultSet.getString("surface"), resultSet.getString("pay"),
-						resultSet.getString("ville"), resultSet.getInt("bathroomNumber"), resultSet.getInt("nbr_etage"),
-						resultSet.getString("type"), resultSet.getString("description"), resultSet.getDouble("prix"),
-						resultSet.getBoolean("disponibilite"), resultSet.getLong("proprietaire_id"),
+				Immobiliers immobilier = new Immobiliers(
+						resultSet.getLong("id"), 
+						resultSet.getString("title"),
+						resultSet.getString("adresse"), 
+						resultSet.getString("pay"),
+						resultSet.getString("ville"),
+						resultSet.getInt("surface"),
+						resultSet.getInt("bathroomNumber"),
+						resultSet.getInt("nbr_etage"),
+						resultSet.getString("type"),
+						resultSet.getString("description"),
+						resultSet.getDouble("prix"),
+						resultSet.getBoolean("disponibilite"),
+						resultSet.getLong("proprietaire_id"),
 						resultSet.getString("listing_type"),
 						new ImageDAOImpl().getAllImagesByImmobilier(resultSet.getLong("id")),
 						resultSet.getInt("room_nbr"),
 						resultSet.getString("created_at"), resultSet.getString("updated_at"),
-						resultSet.getString("deleted_at"));
+						resultSet.getString("deleted_at")
+						);
 				immobilierList.add(immobilier);
 			}
 		} catch (SQLException e) {
@@ -134,7 +164,7 @@ public class ImmobiliersDAOImpl implements ImmobiliersDAO {
 			preparedStatement.setString(1, immobilier.getAdresse());
 			preparedStatement.setString(2, immobilier.getPay());
 			preparedStatement.setString(3, immobilier.getVille());
-			preparedStatement.setString(4, immobilier.getSurface());
+			preparedStatement.setInt(4, immobilier.getSurface());
 			preparedStatement.setInt(5, immobilier.getNbr_etage());
 			preparedStatement.setString(6, immobilier.getType());
 			preparedStatement.setString(7, immobilier.getDescription());
@@ -158,7 +188,7 @@ public class ImmobiliersDAOImpl implements ImmobiliersDAO {
 			preparedStatement.setString(1, immobilier.getAdresse());
 			preparedStatement.setString(2, immobilier.getPay());
 			preparedStatement.setString(3, immobilier.getVille());
-			preparedStatement.setString(4, immobilier.getSurface());
+			preparedStatement.setInt(4, immobilier.getSurface());
 			preparedStatement.setInt(5, immobilier.getNbr_etage());
 			preparedStatement.setString(6, immobilier.getType());
 			preparedStatement.setString(7, immobilier.getDescription());
@@ -201,16 +231,26 @@ public class ImmobiliersDAOImpl implements ImmobiliersDAO {
 			ResultSet resultSet = statement.executeQuery("SELECT * FROM immobiliers where type='" + type + "'");
 
 			while (resultSet.next()) {
-				Immobiliers immobilier = new Immobiliers(resultSet.getLong("id"), resultSet.getString("title"),
-						resultSet.getString("adresse"), resultSet.getString("surface"), resultSet.getString("pay"),
-						resultSet.getString("ville"), resultSet.getInt("bathroomNumber"), resultSet.getInt("nbr_etage"),
-						resultSet.getString("type"), resultSet.getString("description"), resultSet.getDouble("prix"),
-						resultSet.getBoolean("disponibilite"), resultSet.getLong("proprietaire_id"),
+				Immobiliers immobilier = new Immobiliers(
+						resultSet.getLong("id"), 
+						resultSet.getString("title"),
+						resultSet.getString("adresse"), 
+						resultSet.getString("pay"),
+						resultSet.getString("ville"),
+						resultSet.getInt("surface"),
+						resultSet.getInt("bathroomNumber"),
+						resultSet.getInt("nbr_etage"),
+						resultSet.getString("type"),
+						resultSet.getString("description"),
+						resultSet.getDouble("prix"),
+						resultSet.getBoolean("disponibilite"),
+						resultSet.getLong("proprietaire_id"),
 						resultSet.getString("listing_type"),
 						new ImageDAOImpl().getAllImagesByImmobilier(resultSet.getLong("id")),
 						resultSet.getInt("room_nbr"),
 						resultSet.getString("created_at"), resultSet.getString("updated_at"),
-						resultSet.getString("deleted_at"));
+						resultSet.getString("deleted_at")
+						);
 				immobiliers.add(immobilier);
 			}
 
@@ -243,16 +283,26 @@ public class ImmobiliersDAOImpl implements ImmobiliersDAO {
 					.executeQuery("SELECT * FROM immobilier.immobiliers where listing_type = '" + listingType + "'");
 
 			while (resultSet.next()) {
-				Immobiliers immobilier = new Immobiliers(resultSet.getLong("id"), resultSet.getString("title"),
-						resultSet.getString("adresse"), resultSet.getString("surface"), resultSet.getString("pay"),
-						resultSet.getString("ville"), resultSet.getInt("bathroomNumber"), resultSet.getInt("nbr_etage"),
-						resultSet.getString("type"), resultSet.getString("description"), resultSet.getDouble("prix"),
-						resultSet.getBoolean("disponibilite"), resultSet.getLong("proprietaire_id"),
+				Immobiliers immobilier = new Immobiliers(
+						resultSet.getLong("id"), 
+						resultSet.getString("title"),
+						resultSet.getString("adresse"), 
+						resultSet.getString("pay"),
+						resultSet.getString("ville"),
+						resultSet.getInt("surface"),
+						resultSet.getInt("bathroomNumber"),
+						resultSet.getInt("nbr_etage"),
+						resultSet.getString("type"),
+						resultSet.getString("description"),
+						resultSet.getDouble("prix"),
+						resultSet.getBoolean("disponibilite"),
+						resultSet.getLong("proprietaire_id"),
 						resultSet.getString("listing_type"),
 						new ImageDAOImpl().getAllImagesByImmobilier(resultSet.getLong("id")),
 						resultSet.getInt("room_nbr"),
 						resultSet.getString("created_at"), resultSet.getString("updated_at"),
-						resultSet.getString("deleted_at"));
+						resultSet.getString("deleted_at")
+						);
 				immobiliers.add(immobilier);
 			}
 
@@ -274,16 +324,26 @@ public class ImmobiliersDAOImpl implements ImmobiliersDAO {
 			ResultSet resultSet = statement.executeQuery(query);
 
 			while (resultSet.next()) {
-				Immobiliers immobilier = new Immobiliers(resultSet.getLong("id"), resultSet.getString("title"),
-						resultSet.getString("adresse"), resultSet.getString("surface"), resultSet.getString("pay"),
-						resultSet.getString("ville"), resultSet.getInt("bathroomNumber"), resultSet.getInt("nbr_etage"),
-						resultSet.getString("type"), resultSet.getString("description"), resultSet.getDouble("prix"),
-						resultSet.getBoolean("disponibilite"), resultSet.getLong("proprietaire_id"),
+				Immobiliers immobilier = new Immobiliers(
+						resultSet.getLong("id"), 
+						resultSet.getString("title"),
+						resultSet.getString("adresse"), 
+						resultSet.getString("pay"),
+						resultSet.getString("ville"),
+						resultSet.getInt("surface"),
+						resultSet.getInt("bathroomNumber"),
+						resultSet.getInt("nbr_etage"),
+						resultSet.getString("type"),
+						resultSet.getString("description"),
+						resultSet.getDouble("prix"),
+						resultSet.getBoolean("disponibilite"),
+						resultSet.getLong("proprietaire_id"),
 						resultSet.getString("listing_type"),
 						new ImageDAOImpl().getAllImagesByImmobilier(resultSet.getLong("id")),
 						resultSet.getInt("room_nbr"),
 						resultSet.getString("created_at"), resultSet.getString("updated_at"),
-						resultSet.getString("deleted_at"));
+						resultSet.getString("deleted_at")
+						);
 				immobiliers.add(immobilier);
 			}
 

@@ -8,7 +8,7 @@ public class Immobiliers {
     private String adresse;
     private String pay;
     private String ville;
-    private String surface;
+    private int surface;
     private int bathroomNumber;
     private int nbr_etage;
     private String type;
@@ -72,18 +72,18 @@ public class Immobiliers {
         this.ville = ville;
     }
 
-    public String getSurface() {
+    public int getSurface() {
         return surface;
     }
 
 
 
-    public void setSurface(String surface) {
+    public void setSurface(int surface) {
         this.surface = surface;
     }
 
 
-    public Immobiliers(Long id, String title, String adresse, String pay, String ville, String surface, int bathroomNumber,
+    public Immobiliers(Long id, String title, String adresse, String pay, String ville, int surface, int bathroomNumber,
 			int nbr_etage, String type, String description, Double prix, Boolean disponibilite, Long proprietaire_id,
 			String listing_type, List<Image> images,int room_nbr, String created_at, String updated_at, String deleted_at) {
 		super();

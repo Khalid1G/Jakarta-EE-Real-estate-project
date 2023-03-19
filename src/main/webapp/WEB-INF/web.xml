@@ -75,4 +75,14 @@
     <servlet-name>ProfileServlet</servlet-name>
     <url-pattern>/profile</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SinglePageServlet</display-name>
+    <servlet-name>SinglePageServlet</servlet-name>
+    <servlet-class>controller.immobilier.SinglePageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SinglePageServlet</servlet-name>
+    <url-pattern>/showProperty/*</url-pattern>
+  </servlet-mapping>
 </web-app>
