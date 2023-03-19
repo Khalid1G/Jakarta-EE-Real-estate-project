@@ -297,7 +297,7 @@
 
 								</c:forEach>
 								<div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
-									<a class="btn btn-primary py-3 px-5" href="${pageContext.request.contextPath}/search">Browse More
+									<a class="btn btn-primary py-3 px-5" href="${pageContext.request.contextPath}/immobiliers">Browse More
 										Property</a>
 								</div>
 							</div>
@@ -340,7 +340,7 @@
 
 								</c:forEach>
 								<div class="col-12 text-center">
-									<a class="btn btn-primary py-3 px-5" href="${pageContext.request.contextPath}/search">Browse More
+									<a class="btn btn-primary py-3 px-5" href="${pageContext.request.contextPath}/immobiliers">Browse More
 										Property</a>
 								</div>
 							</div>
@@ -383,7 +383,7 @@
 
 								</c:forEach>
 								<div class="col-12 text-center">
-									<a class="btn btn-primary py-3 px-5" href="${pageContext.request.contextPath}/search">Browse More
+									<a class="btn btn-primary py-3 px-5" href="${pageContext.request.contextPath}/immobiliers">Browse More
 										Property</a>
 								</div>
 							</div>
