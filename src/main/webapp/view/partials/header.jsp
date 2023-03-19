@@ -10,7 +10,7 @@
 						alt="Icon" style="width: 30px; height: 30px;">
 				</div>
 				<h1 class="m-0 text-primary">
-					<span class="text-info">Ghazwa</span> Immobilier
+					<span class="text-info">Ghazwa</span> <span style="color:#00b98e !important;">Immobilier</span>
 				</h1>
 			</a>
 			<button type="button" class="navbar-toggler"

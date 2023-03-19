@@ -25,14 +25,14 @@ public class HomeController extends HttpServlet {
 		List<String> villes = new ImmobiliersDAOImpl().getImmobilierAttribute("ville");		
 		List<String> proprtyType = new ImmobiliersDAOImpl().getImmobilierAttribute("type");
 		
-		List<Immobiliers> Apartments = new ImmobiliersDAOImpl().getImmobilierByType("Apartment");
-		List<Immobiliers> Villas = new ImmobiliersDAOImpl().getImmobilierByType("Villa");
-		List<Immobiliers> Homes = new ImmobiliersDAOImpl().getImmobilierByType("Home");
-		List<Immobiliers> Offices = new ImmobiliersDAOImpl().getImmobilierByType("Office");
-		List<Immobiliers> Buildings = new ImmobiliersDAOImpl().getImmobilierByType("Building");
-		List<Immobiliers> Townhouses = new ImmobiliersDAOImpl().getImmobilierByType("Townhouse");
-		List<Immobiliers> Shops = new ImmobiliersDAOImpl().getImmobilierByType("Shop");
-		List<Immobiliers> Garages = new ImmobiliersDAOImpl().getImmobilierByType("Garage");
+		List<Immobiliers> Apartments = new ImmobiliersDAOImpl().getImmobilierByType("apartment");
+		List<Immobiliers> Villas = new ImmobiliersDAOImpl().getImmobilierByType("villa");
+		List<Immobiliers> Homes = new ImmobiliersDAOImpl().getImmobilierByType("home");
+		List<Immobiliers> Offices = new ImmobiliersDAOImpl().getImmobilierByType("office");
+		List<Immobiliers> Buildings = new ImmobiliersDAOImpl().getImmobilierByType("building");
+		List<Immobiliers> Townhouses = new ImmobiliersDAOImpl().getImmobilierByType("townhouse");
+		List<Immobiliers> Shops = new ImmobiliersDAOImpl().getImmobilierByType("shop");
+		List<Immobiliers> Garages = new ImmobiliersDAOImpl().getImmobilierByType("garage");
 		
 		
 		List<Immobiliers> propertiesForSells = new ImmobiliersDAOImpl().getImmobilierByListingType("for sell");

@@ -12,6 +12,7 @@ import java.util.List;
 import Beans.Immobiliers;
 import Beans.User;
 import DAOs.ImagesDAO.ImageDAOImpl;
+import DAOs.userDAO.UserDAOImpl;
 import DataBase.ConnectionFactory;
 
 public class ImmobiliersDAOImpl implements ImmobiliersDAO {
@@ -43,7 +44,7 @@ public class ImmobiliersDAOImpl implements ImmobiliersDAO {
 						resultSet.getString("description"),
 						resultSet.getDouble("prix"),
 						resultSet.getBoolean("disponibilite"),
-						resultSet.getLong("proprietaire_id"),
+						new UserDAOImpl().getUserById(resultSet.getLong("proprietaire_id")),
 						resultSet.getString("listing_type"),
 						new ImageDAOImpl().getAllImagesByImmobilier(resultSet.getLong("id")),
 						resultSet.getInt("room_nbr"),
@@ -102,7 +103,7 @@ public class ImmobiliersDAOImpl implements ImmobiliersDAO {
 						resultSet.getString("description"),
 						resultSet.getDouble("prix"),
 						resultSet.getBoolean("disponibilite"),
-						resultSet.getLong("proprietaire_id"),
+						new UserDAOImpl().getUserById(resultSet.getLong("proprietaire_id")),
 						resultSet.getString("listing_type"),
 						new ImageDAOImpl().getAllImagesByImmobilier(resultSet.getLong("id")),
 						resultSet.getInt("room_nbr"),
@@ -141,7 +142,7 @@ public class ImmobiliersDAOImpl implements ImmobiliersDAO {
 						resultSet.getString("description"),
 						resultSet.getDouble("prix"),
 						resultSet.getBoolean("disponibilite"),
-						resultSet.getLong("proprietaire_id"),
+						new UserDAOImpl().getUserById(resultSet.getLong("proprietaire_id")),
 						resultSet.getString("listing_type"),
 						new ImageDAOImpl().getAllImagesByImmobilier(resultSet.getLong("id")),
 						resultSet.getInt("room_nbr"),
@@ -170,7 +171,7 @@ public class ImmobiliersDAOImpl implements ImmobiliersDAO {
 			preparedStatement.setString(7, immobilier.getDescription());
 			preparedStatement.setDouble(8, immobilier.getPrix());
 			preparedStatement.setBoolean(9, immobilier.getDisponibilite());
-			preparedStatement.setLong(10, immobilier.getProprietaire_id());
+			preparedStatement.setLong(10, immobilier.getProprietaire().getId());
 			preparedStatement.setLong(12, immobilier.getId());
 			preparedStatement.setInt(13, immobilier.getBathroomNumber());
 			preparedStatement.executeUpdate();
@@ -244,7 +245,7 @@ public class ImmobiliersDAOImpl implements ImmobiliersDAO {
 						resultSet.getString("description"),
 						resultSet.getDouble("prix"),
 						resultSet.getBoolean("disponibilite"),
-						resultSet.getLong("proprietaire_id"),
+						new UserDAOImpl().getUserById(resultSet.getLong("proprietaire_id")),
 						resultSet.getString("listing_type"),
 						new ImageDAOImpl().getAllImagesByImmobilier(resultSet.getLong("id")),
 						resultSet.getInt("room_nbr"),
@@ -296,7 +297,7 @@ public class ImmobiliersDAOImpl implements ImmobiliersDAO {
 						resultSet.getString("description"),
 						resultSet.getDouble("prix"),
 						resultSet.getBoolean("disponibilite"),
-						resultSet.getLong("proprietaire_id"),
+						new UserDAOImpl().getUserById(resultSet.getLong("proprietaire_id")),
 						resultSet.getString("listing_type"),
 						new ImageDAOImpl().getAllImagesByImmobilier(resultSet.getLong("id")),
 						resultSet.getInt("room_nbr"),
@@ -337,7 +338,7 @@ public class ImmobiliersDAOImpl implements ImmobiliersDAO {
 						resultSet.getString("description"),
 						resultSet.getDouble("prix"),
 						resultSet.getBoolean("disponibilite"),
-						resultSet.getLong("proprietaire_id"),
+						new UserDAOImpl().getUserById(resultSet.getLong("proprietaire_id")),
 						resultSet.getString("listing_type"),
 						new ImageDAOImpl().getAllImagesByImmobilier(resultSet.getLong("id")),
 						resultSet.getInt("room_nbr"),

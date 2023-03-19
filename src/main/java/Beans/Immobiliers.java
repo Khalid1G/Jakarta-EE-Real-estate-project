@@ -15,7 +15,7 @@ public class Immobiliers {
     private String description;
     private Double prix;
     private Boolean disponibilite;
-    private Long proprietaire_id;
+    private User proprietaire;
     private String listing_type;
     private int room_nbr;
     private String created_at;
@@ -84,7 +84,7 @@ public class Immobiliers {
 
 
     public Immobiliers(Long id, String title, String adresse, String pay, String ville, int surface, int bathroomNumber,
-			int nbr_etage, String type, String description, Double prix, Boolean disponibilite, Long proprietaire_id,
+			int nbr_etage, String type, String description, Double prix, Boolean disponibilite, User proprietaire,
 			String listing_type, List<Image> images,int room_nbr, String created_at, String updated_at, String deleted_at) {
 		super();
 		this.id = id;
@@ -100,7 +100,7 @@ public class Immobiliers {
 		this.prix = prix;
 		this.room_nbr = room_nbr;
 		this.disponibilite = disponibilite;
-		this.proprietaire_id = proprietaire_id;
+		this.proprietaire = proprietaire;
 		this.listing_type = listing_type;
 		this.created_at = created_at;
 		this.updated_at = updated_at;
@@ -156,15 +156,16 @@ public class Immobiliers {
         this.disponibilite = disponibilite;
     }
 
-    public Long getProprietaire_id() {
-        return proprietaire_id;
-    }
 
-    public void setProprietaire_id(Long proprietaire_id) {
-        this.proprietaire_id = proprietaire_id;
-    }
+    public User getProprietaire() {
+		return proprietaire;
+	}
 
-    public String getCreated_at() {
+	public void setProprietaire(User proprietaire) {
+		this.proprietaire = proprietaire;
+	}
+
+	public String getCreated_at() {
         return created_at;
     }
 
@@ -209,14 +210,14 @@ public class Immobiliers {
 		return "Immobiliers [id=" + id + ", title=" + title + ", adresse=" + adresse + ", pay=" + pay + ", ville="
 				+ ville + ", surface=" + surface + ", bathroomNumber=" + bathroomNumber + ", nbr_etage=" + nbr_etage
 				+ ", type=" + type + ", description=" + description + ", prix=" + prix + ", disponibilite="
-				+ disponibilite + ", proprietaire_id=" + proprietaire_id + ", listing_type=" + listing_type
+				+ disponibilite + ", proprietaire=" + proprietaire + ", listing_type=" + listing_type
 				+ ", room_nbr=" + room_nbr + ", created_at=" + created_at + ", updated_at=" + updated_at
 				+ ", deleted_at=" + deleted_at + ", images=" + images + ", getId()=" + getId() + ", getTitle()="
 				+ getTitle() + ", getAdresse()=" + getAdresse() + ", getPay()=" + getPay() + ", getVille()="
 				+ getVille() + ", getSurface()=" + getSurface() + ", getImages()=" + getImages() + ", getNbr_etage()="
 				+ getNbr_etage() + ", getType()=" + getType() + ", getDescription()=" + getDescription()
 				+ ", getPrix()=" + getPrix() + ", getDisponibilite()=" + getDisponibilite() + ", getProprietaire_id()="
-				+ getProprietaire_id() + ", getCreated_at()=" + getCreated_at() + ", getUpdated_at()=" + getUpdated_at()
+				+ getProprietaire() + ", getCreated_at()=" + getCreated_at() + ", getUpdated_at()=" + getUpdated_at()
 				+ ", getBathroomNumber()=" + getBathroomNumber() + ", getDeleted_at()=" + getDeleted_at()
 				+ ", getListing_type()=" + getListing_type() + ", getClass()=" + getClass() + ", hashCode()="
 				+ hashCode() + ", toString()=" + super.toString() + "]";
