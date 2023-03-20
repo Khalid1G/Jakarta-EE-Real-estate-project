@@ -1,6 +1,10 @@
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<% 
+	String pageName = (String)request.getAttribute("pageName");
+	String path = request.getContextPath() + "/agent/profile";
+%>
     
     <div class="card mb-5 mb-xl-10">
   <div class="card-body pt-9 pb-0">
@@ -105,44 +109,13 @@
               >
                 <!--begin::Number-->
                 <div class="d-flex align-items-center">
-                  <!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
-                  <span class="svg-icon svg-icon-3 svg-icon-success me-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                    >
-                      <rect
-                        opacity="0.5"
-                        x="13"
-                        y="6"
-                        width="13"
-                        height="2"
-                        rx="1"
-                        transform="rotate(90 13 6)"
-                        fill="black"
-                      ></rect>
-                      <path
-                        d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z"
-                        fill="black"
-                      ></path>
-                    </svg>
-                  </span>
-                  <!--end::Svg Icon-->
-                  <div
-                    class="fs-2 fw-bolder counted"
-                    data-kt-countup="true"
-                    data-kt-countup-value="4500"
-                    data-kt-countup-prefix="$"
-                  >
-                    $4,500
+                  <div>
+                    <%= ((List<Integer>)request.getAttribute("counts")).get(0) %>
                   </div>
                 </div>
                 <!--end::Number-->
                 <!--begin::Label-->
-                <div class="fw-bold fs-6 text-gray-400">Earnings</div>
+                <div class="fw-bold fs-6 text-gray-400">Total</div>
                 <!--end::Label-->
               </div>
               <!--end::Stat-->
@@ -152,43 +125,14 @@
               >
                 <!--begin::Number-->
                 <div class="d-flex align-items-center">
-                  <!--begin::Svg Icon | path: icons/duotune/arrows/arr065.svg-->
-                  <span class="svg-icon svg-icon-3 svg-icon-danger me-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                    >
-                      <rect
-                        opacity="0.5"
-                        x="11"
-                        y="18"
-                        width="13"
-                        height="2"
-                        rx="1"
-                        transform="rotate(-90 11 18)"
-                        fill="black"
-                      ></rect>
-                      <path
-                        d="M11.4343 15.4343L7.25 11.25C6.83579 10.8358 6.16421 10.8358 5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75L11.2929 18.2929C11.6834 18.6834 12.3166 18.6834 12.7071 18.2929L18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25C17.8358 10.8358 17.1642 10.8358 16.75 11.25L12.5657 15.4343C12.2533 15.7467 11.7467 15.7467 11.4343 15.4343Z"
-                        fill="black"
-                      ></path>
-                    </svg>
-                  </span>
-                  <!--end::Svg Icon-->
-                  <div
-                    class="fs-2 fw-bolder counted"
-                    data-kt-countup="true"
-                    data-kt-countup-value="75"
-                  >
-                    75
+                  
+                  <div>
+                    <%= ((List<Integer>)request.getAttribute("counts")).get(1) %>
                   </div>
                 </div>
                 <!--end::Number-->
                 <!--begin::Label-->
-                <div class="fw-bold fs-6 text-gray-400">Projects</div>
+                <div class="fw-bold fs-6 text-gray-400">Available</div>
                 <!--end::Label-->
               </div>
               <!--end::Stat-->
@@ -198,44 +142,14 @@
               >
                 <!--begin::Number-->
                 <div class="d-flex align-items-center">
-                  <!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
-                  <span class="svg-icon svg-icon-3 svg-icon-success me-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                    >
-                      <rect
-                        opacity="0.5"
-                        x="13"
-                        y="6"
-                        width="13"
-                        height="2"
-                        rx="1"
-                        transform="rotate(90 13 6)"
-                        fill="black"
-                      ></rect>
-                      <path
-                        d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z"
-                        fill="black"
-                      ></path>
-                    </svg>
-                  </span>
-                  <!--end::Svg Icon-->
-                  <div
-                    class="fs-2 fw-bolder counted"
-                    data-kt-countup="true"
-                    data-kt-countup-value="60"
-                    data-kt-countup-prefix="%"
-                  >
-                    %60
+                  
+                  <div>
+                    <%= ((List<Integer>)request.getAttribute("counts")).get(2) %>
                   </div>
                 </div>
                 <!--end::Number-->
                 <!--begin::Label-->
-                <div class="fw-bold fs-6 text-gray-400">Success Rate</div>
+                <div class="fw-bold fs-6 text-gray-400">Unavailable</div>
                 <!--end::Label-->
               </div>
               <!--end::Stat-->
@@ -256,8 +170,8 @@
       <!--begin::Nav item-->
       <li class="nav-item mt-2">
         <a
-          class="nav-link text-active-primary ms-0 me-10 py-5 active"
-          href="../../demo6/dist/account/overview.html"
+          class="nav-link text-active-primary ms-0 me-10 py-5 <%= pageName.equals("overview") ? "active" : "" %>"
+          href="<%=path %>"
           >Overview</a
         >
       </li>
@@ -265,8 +179,8 @@
       <!--begin::Nav item-->
       <li class="nav-item mt-2">
         <a
-          class="nav-link text-active-primary ms-0 me-10 py-5"
-          href="../../demo6/dist/account/settings.html"
+          class="nav-link text-active-primary ms-0 me-10 py-5 <%= pageName.equals("settings") ? "active" : "" %>"
+          href="<%=path+"/settings" %>"
           >Settings</a
         >
       </li>
@@ -274,8 +188,8 @@
       <!--begin::Nav item-->
       <li class="nav-item mt-2">
         <a
-          class="nav-link text-active-primary ms-0 me-10 py-5"
-          href="../../demo6/dist/account/security.html"
+          class="nav-link text-active-primary ms-0 me-10 py-5 <%= pageName.equals("security") ? "active" : "" %>"
+          href="<%=path+"/security" %>"
           >Security</a
         >
       </li>
@@ -283,8 +197,8 @@
       <!--begin::Nav item-->
       <li class="nav-item mt-2">
         <a
-          class="nav-link text-active-primary ms-0 me-10 py-5"
-          href="../../demo6/dist/account/billing.html"
+          class="nav-link text-active-primary ms-0 me-10 py-5 <%= pageName.equals("properties") ? "active" : "" %>"
+          href="<%=path+"/properties" %>"
           >Properties</a
         >
       </li>

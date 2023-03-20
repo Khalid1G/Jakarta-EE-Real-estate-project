@@ -320,7 +320,7 @@
 									data-wow-delay="0.1s">
 									<div class="property-item rounded overflow-hidden">
 										<div class="position-relative overflow-hidden">
-											<a href=""> <img class="img-fluid"
+											<a href="${pageContext.request.contextPath}/showProperty/${propertiesFeatured.id}"> <img class="img-fluid"
 												src="${pageContext.request.contextPath}/view/assets/img/<c:out value="${propertiesFeatured.images[0].path }">placeholderIHome.jpg</c:out>"
 												alt=""></a>
 											<div
@@ -332,7 +332,7 @@
 										</div>
 										<div class="p-4 pb-0">
 											<h5 class="text-primary mb-3">${propertiesFeatured.prix}$</h5>
-											<a class="d-block h5 mb-2" href=""
+											<a class="d-block h5 mb-2" href="${pageContext.request.contextPath}/showProperty/${propertiesFeatured.id}"
 												style="text-overflow: ellipsis;">${propertiesFeatured.title}</a>
 											<p>
 												<i class="fa fa-map-marker-alt text-primary me-2"></i>${propertiesFeatured.adresse}
@@ -367,7 +367,7 @@
 									data-wow-delay="0.1s">
 									<div class="property-item rounded overflow-hidden">
 										<div class="position-relative overflow-hidden">
-											<a href=""><img class="img-fluid"
+											<a href="${pageContext.request.contextPath}/showProperty/${propertiesForSell.id}"><img class="img-fluid"
 												src="${pageContext.request.contextPath}/view/assets/img/<c:out value="${propertiesForSell.images[0].path }">placeholderIHome.jpg</c:out>"
 												alt=""></a>
 											<div
@@ -379,7 +379,7 @@
 										</div>
 										<div class="p-4 pb-0">
 											<h5 class="text-primary mb-3">${propertiesForSell.prix}$</h5>
-											<a class="d-block h5 mb-2" href=""
+											<a class="d-block h5 mb-2" href="${pageContext.request.contextPath}/showProperty/${propertiesForSell.id}"
 												style="text-overflow: ellipsis;">${propertiesForSell.title}</a>
 											<p>
 												<i class="fa fa-map-marker-alt text-primary me-2"></i>${propertiesForSell.adresse}
@@ -414,7 +414,7 @@
 									data-wow-delay="0.1s">
 									<div class="property-item rounded overflow-hidden">
 										<div class="position-relative overflow-hidden">
-											<a href=""><img class="img-fluid"
+											<a href="${pageContext.request.contextPath}/showProperty/${propertiesForRent.id}"><img class="img-fluid"
 												src="${pageContext.request.contextPath}/view/assets/img/<c:out value="${propertiesForRent.images[0].path }">placeholderIHome.jpg</c:out>"
 												alt=""></a>
 											<div
@@ -426,7 +426,7 @@
 										</div>
 										<div class="p-4 pb-0">
 											<h5 class="text-primary mb-3">${propertiesForRent.prix}$</h5>
-											<a class="d-block h5 mb-2" href=""
+											<a class="d-block h5 mb-2" href="${pageContext.request.contextPath}/showProperty/${propertiesForRent.id}"
 												style="text-overflow: ellipsis;">${propertiesForRent.title}</a>
 											<p>
 												<i class="fa fa-map-marker-alt text-primary me-2"></i>${propertiesForRent.adresse}

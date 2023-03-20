@@ -11,16 +11,6 @@
   </welcome-file-list>
   <servlet>
     <description></description>
-    <display-name>Auth</display-name>
-    <servlet-name>Auth</servlet-name>
-    <servlet-class>controller.auth.Auth</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Auth</servlet-name>
-    <url-pattern>/Auth</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>ImmobiliersConroller</display-name>
     <servlet-name>ImmobiliersConroller</servlet-name>
     <servlet-class>controller.auth.HomeController</servlet-class>
@@ -63,9 +53,9 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>PropertyServlet</servlet-name>
-    <url-pattern>/properties</url-pattern>
+    <url-pattern>/agent/properties</url-pattern>
   </servlet-mapping>
-  <servlet>
+   <servlet>
     <description></description>
     <display-name>ProfileServlet</display-name>
     <servlet-name>ProfileServlet</servlet-name>
@@ -73,8 +63,49 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ProfileServlet</servlet-name>
-    <url-pattern>/profile</url-pattern>
+    <url-pattern>/agent/profile</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProfileSettingsServlet</display-name>
+    <servlet-name>ProfileSettingsServlet</servlet-name>
+    <servlet-class>controller.backoffice.ProfileSettingsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProfileSettingsServlet</servlet-name>
+    <url-pattern>/agent/profile/settings</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProfileSecurityServlet</display-name>
+    <servlet-name>ProfileSecurityServlet</servlet-name>
+    <servlet-class>controller.backoffice.ProfileSecurityServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProfileSecurityServlet</servlet-name>
+    <url-pattern>/agent/profile/security</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProfilePropertiesServlet</display-name>
+    <servlet-name>ProfilePropertiesServlet</servlet-name>
+    <servlet-class>controller.backoffice.ProfilePropertiesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProfilePropertiesServlet</servlet-name>
+    <url-pattern>/agent/profile/properties</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PropertyDeleteServlet</display-name>
+    <servlet-name>PropertyDeleteServlet</servlet-name>
+    <servlet-class>controller.backoffice.PropertyDeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PropertyDeleteServlet</servlet-name>
+    <url-pattern>/properties/delete</url-pattern>
+  </servlet-mapping>
+  
   <servlet>
     <description></description>
     <display-name>SinglePageServlet</display-name>
@@ -95,4 +126,9 @@
     <servlet-name>SignUpServlet</servlet-name>
     <url-pattern>/SignUpServlet</url-pattern>
   </servlet-mapping>
+  
+  
+  <session-config>
+  <session-timeout>300</session-timeout> <!-- Session timeout in minutes -->
+</session-config>
 </web-app>

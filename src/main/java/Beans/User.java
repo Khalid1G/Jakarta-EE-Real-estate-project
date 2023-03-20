@@ -158,5 +158,9 @@ public class User implements Serializable {
 	public void setDeleted_at(String deleted_at) {
 		this.deleted_at = deleted_at;
 	}
+	
+	public String getFullName() {
+		return this.prenom + " " + this.nom;
+	}
 
 }

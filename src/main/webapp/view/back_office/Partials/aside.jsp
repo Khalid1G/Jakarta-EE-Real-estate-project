@@ -17,44 +17,14 @@
             <!--begin::Menu-->
             <div class="menu menu-column menu-title-gray-700 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-bold" id="#kt_aside_menu" data-kt-menu="true">
                 <div class="menu-item py-2">
-                    <a class="menu-link active menu-center" href="../../demo6/dist/index.html" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
+                    <a class="menu-link active menu-center" href="<%= request.getContextPath() %>/agent" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
                         <span class="menu-icon me-0">
                             <i class="bi bi-house fs-2"></i>
                         </span>
                         <span class="menu-title">Home</span>
                     </a>
                 </div>
-                <!-- <div data-kt-menu-trigger="click" data-kt-menu-placement="right-start" class="menu-item py-2">
-                    <span class="menu-link menu-center" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
-                        <span class="menu-icon me-0">
-                            <i class="bi bi-people fs-2"></i>
-                        </span>
-                        <span class="menu-title">Users</span>
-                    </span>
-                    <div class="menu-sub menu-sub-dropdown w-225px px-1 py-4">
-                        <div class="menu-item">
-                            <div class="menu-content">
-                                <span class="menu-section fs-5 fw-bolder ps-1 py-1">Users</span>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <a class="menu-link" href="../../demo6/dist/apps/customers/getting-started.html">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Users List</span>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a class="menu-link" href="../../demo6/dist/apps/customers/list.html">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Add New User</span>
-                            </a>
-                        </div>
-                    </div>
-                </div> -->
+                
                 <div data-kt-menu-trigger="click" data-kt-menu-placement="right-start" class="menu-item py-2">
                     <span class="menu-link menu-center" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
                         <span class="menu-icon me-0">
@@ -69,7 +39,7 @@
                             </div>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link" href="../../demo6/dist/apps/customers/getting-started.html">
+                            <a class="menu-link" href="<%= request.getContextPath() %>/agent/properties">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -77,7 +47,7 @@
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link" href="../../demo6/dist/apps/customers/list.html">
+                            <a class="menu-link" href="<%= request.getContextPath() %>/agent/property/add">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -120,12 +90,12 @@
                 <!--end::Menu separator-->
                 <!--begin::Menu item-->
                 <div class="menu-item px-3">
-                    <a href="#" class="menu-link px-3">New Ticket</a>
+                    <a href="<%= request.getContextPath() %>/agent/profile/settings" class="menu-link px-3">Settings</a>
                 </div>
                 <!--end::Menu item-->
                 <!--begin::Menu item-->
                 <div class="menu-item px-3">
-                    <a href="#" class="menu-link px-3">New Customer</a>
+                    <a href="<%= request.getContextPath() %>/agent/profile/security" class="menu-link px-3">Security</a>
                 </div>
                 <!--end::Menu item-->
             </div>

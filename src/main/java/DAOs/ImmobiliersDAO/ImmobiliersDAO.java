@@ -7,7 +7,7 @@ import Beans.User;
 
 public interface ImmobiliersDAO {
 
-	public void addImmobilier(Immobiliers immobiliers, User user);
+	public void addImmobilier(Immobiliers immobilier);
 
 	public void updateImmobilier(Immobiliers immobiliers);
 
@@ -31,4 +31,5 @@ public interface ImmobiliersDAO {
 
 	public List<Immobiliers> getImmobilierBySearchQuery(String query);
 
+	public List<Integer> getCounts();
 }

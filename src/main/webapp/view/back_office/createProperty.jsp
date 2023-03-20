@@ -34,7 +34,7 @@
 								<!--end::Label-->
 								<!--begin::Input-->
 								<div class="position-relative">
-									<input autocomplete="OFF" type="text" class="form-control  rounded" name="adress"
+									<input autocomplete="OFF" type="text" class="form-control  rounded" name="adresse"
 										placeholder="Adresse">
 									<span class="text-danger fw-boldest"></span>
 								</div>
@@ -48,32 +48,32 @@
 								<!--end::Label-->
 								<!--begin::Input-->
 								<div class="position-relative">
-									<select class="form-select" data-control="select2" data-placeholder="Select a city">
+									<select name="city" class="form-select" data-control="select2" data-placeholder="Select a city">
 										<option></option>
-										<option value="Agadir">Agadir</option>
-										<option value="Al Hoceima">Al Hoceima</option>
-										<option value="Beni Mellal">Beni Mellal</option>
-										<option value="Casablanca">Casablanca</option>
-										<option value="El Jadida">El Jadida</option>
-										<option value="Errachidia">Errachidia</option>
-										<option value="Essaouira">Essaouira</option>
-										<option value="Fes">Fes</option>
-										<option value="Ifrane">Ifrane</option>
-										<option value="Kenitra">Kenitra</option>
-										<option value="Khenifra">Khenifra</option>
-										<option value="Khouribga">Khouribga</option>
-										<option value="Laayoune">Laayoune</option>
-										<option value="Marrakech">Marrakech</option>
-										<option value="Meknes">Meknes</option>
-										<option value="Nador">Nador</option>
-										<option value="Ouarzazate">Ouarzazate</option>
-										<option value="Oujda">Oujda</option>
-										<option value="Rabat">Rabat</option>
-										<option value="Safi">Safi</option>
-										<option value="Settat">Settat</option>
-										<option value="Tangier">Tangier</option>
-										<option value="Taza">Taza</option>
-										<option value="Tetouan">Tetouan</option>
+										<option value="agadir">Agadir</option>
+										<option value="al hoceima">Al Hoceima</option>
+										<option value="beni mellal">Beni Mellal</option>
+										<option value="casablanca">Casablanca</option>
+										<option value="el jadida">El Jadida</option>
+										<option value="errachidia">Errachidia</option>
+										<option value="essaouira">Essaouira</option>
+										<option value="fes">Fes</option>
+										<option value="ifrane">Ifrane</option>
+										<option value="kenitra">Kenitra</option>
+										<option value="khenifra">Khenifra</option>
+										<option value="khouribga">Khouribga</option>
+										<option value="laayoune">Laayoune</option>
+										<option value="marrakech">Marrakech</option>
+										<option value="meknes">Meknes</option>
+										<option value="nador">Nador</option>
+										<option value="ouarzazate">Ouarzazate</option>
+										<option value="oujda">Oujda</option>
+										<option value="rabat">Rabat</option>
+										<option value="safi">Safi</option>
+										<option value="settat">Settat</option>
+										<option value="tangier">Tangier</option>
+										<option value="taza">Taza</option>
+										<option value="tetouan">Tetouan</option>
 									</select>
 								</div>
 								<!--end::Input-->
@@ -106,7 +106,7 @@
 									<span class="fa fa-ruler-combined"></span>
 									<!--end::Svg Icon-->
 								</span>
-								<input type="text" class="form-control" placeholder="m²" aria-label="Surface"
+								<input type="number" class="form-control" placeholder="m²" aria-label="Surface" name="surface"
 									aria-describedby="basic-addon1" />
 							</div>
 							<!--end::Input group-->
@@ -122,7 +122,7 @@
 									<span class="fa fa-bed"></span>
 									<!--end::Svg Icon-->
 								</span>
-								<input type="text" class="form-control" placeholder="Bedrooms" aria-label="Bedrooms"
+								<input type="number" class="form-control" placeholder="Bedrooms" aria-label="Bedrooms" name="bedrooms"
 									aria-describedby="basic-addon2" />
 							</div>
 							<!--end::Input group-->
@@ -138,7 +138,7 @@
 									<span class="fa fa-bath"></span>
 									<!--end::Svg Icon-->
 								</span>
-								<input type="text" class="form-control" placeholder="Bathrooms" aria-label="Bathrooms"
+								<input type="number" class="form-control" placeholder="Bathrooms" aria-label="Bathrooms" name="bathrooms"
 									aria-describedby="basic-addon3" />
 							</div>
 							<!--end::Input group-->
@@ -154,7 +154,7 @@
 									<span class="fa fa-building"></span>
 									<!--end::Svg Icon-->
 								</span>
-								<input type="text" class="form-control" placeholder="Floors" aria-label="Floors"
+								<input type="number" class="form-control" placeholder="Floors" aria-label="Floors" name="floors"
 									aria-describedby="basic-addon4" />
 							</div>
 							<!--end::Input group-->
@@ -168,10 +168,16 @@
 								<!--end::Label-->
 								<!--begin::Input-->
 								<div class="position-relative">
-									<select class="form-select" data-control="select2" data-placeholder="Select a type">
+									<select name="property_type" class="form-select" data-control="select2" data-placeholder="Select a type">
 										<option></option>
-										<option value="Apartment">Apartment</option>
-										<option value="house">House</option>
+										<option value="apartment">Apartment</option>
+										<option value="home">Home</option>
+										<option value="villa">Villa</option>
+										<option value="office">Office</option>
+										<option value="building">Building</option>
+										<option value="townhouse">TownHouse</option>
+										<option value="shop">Shop</option>
+										<option value="garage">Garage</option>
 									</select>
 									<span class="text-danger fw-boldest"></span>
 								</div>
@@ -185,10 +191,10 @@
 								<!--end::Label-->
 								<!--begin::Input-->
 								<div class="position-relative">
-									<select class="form-select" data-control="select2" data-placeholder="Select a type">
+									<select name="operation_type" class="form-select" data-control="select2" data-placeholder="Select a type">
 										<option></option>
-										<option value="sell">Sell</option>
-										<option value="rent">Rent</option>
+										<option value="For Sell">Sell</option>
+										<option value="For Rent">Rent</option>
 									</select>
 									<span class="text-danger fw-boldest"></span>
 								</div>
@@ -207,7 +213,7 @@
 										<span class="fas fa-money-bill-wave"></span>
 										<!--end::Svg Icon-->
 									</span>
-									<input type="text" class="form-control" placeholder="Price" aria-label="Price"
+									<input type="text" class="form-control" placeholder="Price" aria-label="Price" name="price"
 										aria-describedby="basic-addon5" />
 								</div>
 								<!--end::Input group-->

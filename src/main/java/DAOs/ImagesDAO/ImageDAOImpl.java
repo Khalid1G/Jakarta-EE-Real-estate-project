@@ -108,7 +108,8 @@ public class ImageDAOImpl implements ImageDAO {
 	public List<Image> getAllImagesByImmobilier(long id) {
 		List < Image > images = new ArrayList < > ();
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM immobilier.images where imageable_owner_id = "+id);
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM immobilier.images where imageable_owner_id = ?");
+            preparedStatement.setLong(1, id);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 Image image = new Image();

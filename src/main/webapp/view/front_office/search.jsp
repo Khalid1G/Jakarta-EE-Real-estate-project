@@ -129,8 +129,6 @@
 											</div>
 										</div>
 
-
-
 										<div>
 											<label for="Surface" class="form-label">Floor</label>
 											<div class="row d-flex justify-content-between">
@@ -191,9 +189,9 @@
 									data-wow-delay="0.1s">
 									<div class="property-item rounded overflow-hidden">
 										<div class="position-relative overflow-hidden">
-											<a href=""><img class="img-fluid"
+											<a href="${pageContext.request.contextPath}/showProperty/${property.id}"><img class="img-fluid"
 <%-- 												src="${pageContext.request.contextPath}/view/assets/img/<c:out value="${property.images[0].path }">placeholderIHome.jpg</c:out>" --%>
-																								src="<c:out value="${property.images[0].path }">placeholderIHome.jpg</c:out>"
+													src="<c:out value="${property.images[0].path }">placeholderIHome.jpg</c:out>"
 												
 												alt=""></a>
 											<div
@@ -205,7 +203,7 @@
 										</div>
 										<div class="p-4 pb-0">
 											<h5 class="text-primary mb-3">${property.prix}$</h5>
-											<a class="d-block h5 mb-2 text-truncate" href="">${property.title}</a>
+											<a class="d-block h5 mb-2 text-truncate" href="${pageContext.request.contextPath}/showProperty/${property.id}">${property.title}</a>
 											<p>
 												<i class="fa fa-map-marker-alt text-primary me-2 text-truncate"></i>${property.adresse}
 											</p>
@@ -236,10 +234,6 @@
 	<!-- Back to Top -->
 	<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
 		class="bi bi-arrow-up"></i></a>
-
-
-
-
 
 	<!-- JavaScript Libraries -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

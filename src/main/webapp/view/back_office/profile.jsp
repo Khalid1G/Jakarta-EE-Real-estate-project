@@ -12,7 +12,7 @@ pageEncoding="UTF-8"%> <%@ include file="./Partials/topPage.jsp" %>
 		</div>
 		<!--end::Card title-->
 		<!--begin::Action-->
-		<a href="../../demo6/dist/account/settings.html" class="btn btn-primary align-self-center">Edit Profile</a>
+		<a href="<%= request.getContextPath() %>/agent/profile/settings" class="btn btn-primary align-self-center">Edit Profile</a>
 		<!--end::Action-->
 	</div>
 	<!--begin::Card header-->

@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="./Partials/topPage.jsp" %>
@@ -7,7 +8,7 @@
 							<div class="row g-5 g-xl-8">
 								<div class="col-xl-4">
 									<!--begin::Statistics Widget 5-->
-									<a href="#" class="card bg-danger hoverable card-xl-stretch mb-xl-8">
+									<a href="#" class="card bg-primary hoverable card-xl-stretch mb-xl-8">
 										<!--begin::Body-->
 										<div class="card-body">
 											<!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm002.svg-->
@@ -19,8 +20,8 @@
 												</svg>
 											</span>
 											<!--end::Svg Icon-->
-											<div class="text-white fw-bolder fs-2 mb-2 mt-5">Properties</div>
-											<div class="fw-bold text-white">100</div>
+											<div class="text-white fw-bolder fs-2 mb-2 mt-5">Total properties</div>
+											<div class="fw-bold text-white"><%= ((List<Integer>)request.getAttribute("counts")).get(0) %></div>
 										</div>
 										<!--end::Body-->
 									</a>
@@ -28,7 +29,7 @@
 								</div>
 								<div class="col-xl-4">
 									<!--begin::Statistics Widget 5-->
-									<a href="#" class="card bg-primary hoverable card-xl-stretch mb-xl-8">
+									<a href="#" class="card bg-success hoverable card-xl-stretch mb-xl-8">
 										<!--begin::Body-->
 										<div class="card-body">
 											<!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm008.svg-->
@@ -40,8 +41,8 @@
 												</svg>
 											</span>
 											<!--end::Svg Icon-->
-											<div class="text-white fw-bolder fs-2 mb-2 mt-5">Contact tries</div>
-											<div class="fw-bold text-white">300</div>
+											<div class="text-white fw-bolder fs-2 mb-2 mt-5">Available properties</div>
+											<div class="fw-bold text-white"><%= ((List<Integer>)request.getAttribute("counts")).get(1) %></div>
 										</div>
 										<!--end::Body-->
 									</a>
@@ -49,7 +50,7 @@
 								</div>
 								<div class="col-xl-4">
 									<!--begin::Statistics Widget 5-->
-									<a href="#" class="card bg-success hoverable card-xl-stretch mb-5 mb-xl-8">
+									<a href="#" class="card bg-danger hoverable card-xl-stretch mb-5 mb-xl-8">
 										<!--begin::Body-->
 										<div class="card-body">
 											<!--begin::Svg Icon | path: icons/duotune/graphs/gra005.svg-->
@@ -60,8 +61,8 @@
 												</svg>
 											</span>
 											<!--end::Svg Icon-->
-											<div class="text-white fw-bolder fs-2 mb-2 mt-5">Closed deals</div>
-											<div class="fw-bold text-white">60</div>
+											<div class="text-white fw-bolder fs-2 mb-2 mt-5">Unavailable properties</div>
+											<div class="fw-bold text-white"><%= ((List<Integer>)request.getAttribute("counts")).get(2) %></div>
 										</div>
 										<!--end::Body-->
 									</a>
