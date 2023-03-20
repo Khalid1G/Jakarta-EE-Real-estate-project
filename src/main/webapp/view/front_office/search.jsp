@@ -82,7 +82,6 @@
 		</div>
 		<!-- Search End -->
 
-
 		<!--Section Start-->
 		<section class="gray wow fadeIn">
 			<div class="container">
@@ -190,8 +189,7 @@
 									<div class="property-item rounded overflow-hidden">
 										<div class="position-relative overflow-hidden">
 											<a href="${pageContext.request.contextPath}/showProperty/${property.id}"><img class="img-fluid"
-<%-- 												src="${pageContext.request.contextPath}/view/assets/img/<c:out value="${property.images[0].path }">placeholderIHome.jpg</c:out>" --%>
-													src="<c:out value="${property.images[0].path }">placeholderIHome.jpg</c:out>"
+												src="${pageContext.request.contextPath}/view/assets/img/<c:out value="${property.images[0].path }">placeholderIHome.jpg</c:out>"
 												
 												alt=""></a>
 											<div
@@ -270,8 +268,6 @@
 		    mergedParams.set(key, value);
 
 		  }
-		  
-		  console.log(mergedParams.toString());
 
 		  // Construct the search results URL
 		  const searchResultsUrl = "${pageContext.request.contextPath}/property?" + mergedParams.toString();

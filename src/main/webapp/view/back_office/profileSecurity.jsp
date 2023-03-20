@@ -23,29 +23,29 @@
                 <!--begin::Label-->
                 <div id="kt_signin_email">
                     <div class="fs-6 fw-bolder mb-1">Email Address</div>
-                    <div class="fw-bold text-gray-600">support@keenthemes.com</div>
+                    <div class="fw-bold text-gray-600"><%= currentUser.getEmail() %></div>
                 </div>
                 <!--end::Label-->
                 <!--begin::Edit-->
                 <div id="kt_signin_email_edit" class="flex-row-fluid d-none">
                     <!--begin::Form-->
-                    <form id="kt_signin_change_email" class="form" novalidate="novalidate">
+                    <form id="kt_signin_change_email" class="form" novalidate="novalidate" action="" method="post">
                         <div class="row mb-6">
                             <div class="col-lg-6 mb-4 mb-lg-0">
                                 <div class="fv-row mb-0">
                                     <label for="emailaddress" class="form-label fs-6 fw-bolder mb-3">Enter New Email Address</label>
-                                    <input type="email" class="form-control form-control-lg form-control-solid" id="emailaddress" placeholder="Email Address" name="emailaddress" value="support@keenthemes.com" />
+                                    <input type="email" class="form-control form-control-lg form-control-solid" id="emailaddress" placeholder="Email Address" name="email" value="<%= currentUser.getEmail() %>" />
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="fv-row mb-0">
                                     <label for="confirmemailpassword" class="form-label fs-6 fw-bolder mb-3">Confirm Password</label>
-                                    <input type="password" class="form-control form-control-lg form-control-solid" name="confirmemailpassword" id="confirmemailpassword" />
+                                    <input type="password" class="form-control form-control-lg form-control-solid" name="currentpassword" id="confirmemailpassword" />
                                 </div>
                             </div>
                         </div>
                         <div class="d-flex">
-                            <button id="kt_signin_submit" type="button" class="btn btn-primary me-2 px-6">Update Email</button>
+                            <button type="submit" class="btn btn-primary me-2 px-6">Update Email</button>
                             <button id="kt_signin_cancel" type="button" class="btn btn-color-gray-400 btn-active-light-primary px-6">Cancel</button>
                         </div>
                     </form>
@@ -73,7 +73,7 @@
                 <!--begin::Edit-->
                 <div id="kt_signin_password_edit" class="flex-row-fluid d-none">
                     <!--begin::Form-->
-                    <form id="kt_signin_change_password" class="form" novalidate="novalidate">
+                    <form id="" class="form" novalidate="novalidate" action="" method="post">
                         <div class="row mb-1">
                             <div class="col-lg-4">
                                 <div class="fv-row mb-0">
@@ -96,7 +96,7 @@
                         </div>
                         <div class="form-text mb-5">Password must be at least 8 character and contain symbols</div>
                         <div class="d-flex">
-                            <button id="kt_password_submit" type="button" class="btn btn-primary me-2 px-6">Update Password</button>
+                            <button id="" type="submit" class="btn btn-primary me-2 px-6">Update Password</button>
                             <button id="kt_password_cancel" type="button" class="btn btn-color-gray-400 btn-active-light-primary px-6">Cancel</button>
                         </div>
                     </form>

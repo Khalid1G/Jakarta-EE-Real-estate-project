@@ -15,8 +15,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
-import org.apache.commons.io.FilenameUtils;
-import org.apache.tika.Tika;
 import org.apache.tomcat.jakartaee.commons.compress.utils.FileNameUtils;
 
 import Beans.Image;
@@ -85,54 +83,20 @@ public class PropertyCreationServlet extends HttpServlet {
 		List<Image> images = new ArrayList<Image>();
 		if (user != null) {
 			try {
-				Collection<Part> parts = request.getParts();
-				// Create a Tika instance
-				Tika tika = new Tika();
 
-				for (Part part : parts) {
-				    String fileName = part.getSubmittedFileName();
-				    String fileExtension = null;
-				    if (fileName != null) {
-				        fileExtension = "." + FilenameUtils.getExtension(fileName);
-				    }
-				    if (fileExtension != null && fileExtension.matches("(?i)\\.png|\\.jpg|\\.jpeg|\\.gif|\\.bmp")) {
-				        InputStream fileContent = part.getInputStream();
+				for (Part filePart : request.getParts()) {
+						  String fileName = UUID.randomUUID().toString()+filePart.getSubmittedFileName();
+						
+					        if (fileName != null && !fileName.isEmpty() &&  !fileName.contains("null")) {
+					            filePart.write("C:\\Users\\Khalid\\Music\\JAVA\\JAVAEE\\src\\main\\webapp\\view\\assets\\img\\" + fileName);
+					            img = new Image();
+								img.setPath(fileName);
+								images.add(img);
+					        }
+					
+			    }
 
-				        // Use Tika to detect the file type from the file contents
-				        String fileType = tika.detect(fileContent);
-				        System.out.println(fileType);
-				        // Check if the detected file type is one of the supported image types
-				        if (fileType != null && fileType.startsWith("image/")) {
-				        	
-				            // Reset the stream position to the beginning
-				            fileContent.reset();
-
-				            // Create a folder to store the images if it doesn't exist
-				            String uploadPath = getServletContext().getRealPath("/") + "uploads/";
-				            File uploadDir = new File(uploadPath);
-				            if (!uploadDir.exists()) {
-				                uploadDir.mkdir();
-				            }
-
-				            // Generate a unique file name and write the image content to a file in the folder
-				            String uuid = UUID.randomUUID().toString();
-				            String filePath = uploadPath + uuid + fileExtension;
-				            try (OutputStream out = new FileOutputStream(new File(filePath))) {
-				                byte[] buffer = new byte[1024];
-				                int bytesRead;
-				                while ((bytesRead = fileContent.read(buffer)) != -1) {
-				                    out.write(buffer, 0, bytesRead);
-				                }
-				            }
-
-				            // Insert the path of the image file into the database
-				            img = new Image();
-							img.setPath(filePath);
-							images.add(img);
-							System.out.println(img.getPath() + "imgggggggggg");
-				        }
-				    }
-				}
+				
 //				
 				new ImmobiliersDAOImpl()
 					.addImmobilier(new Immobiliers(

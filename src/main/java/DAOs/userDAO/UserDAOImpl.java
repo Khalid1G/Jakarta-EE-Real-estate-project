@@ -53,7 +53,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public void updateUser(User user) {
+	public boolean updateUser(User user) {
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(
 					"UPDATE users SET nom=?, prenom=?, role=?, tel=?, avatar=?, updated_at=? WHERE id=?");
@@ -66,10 +66,13 @@ public class UserDAOImpl implements UserDAO {
 			preparedStatement.setString(6, user.getUpdated_at());
 			preparedStatement.setLong(7, user.getId());
 
-			preparedStatement.executeUpdate();
+			int res = preparedStatement.executeUpdate();
+			if(res> 0)
+				return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return false;
 	}
 
 	@Override

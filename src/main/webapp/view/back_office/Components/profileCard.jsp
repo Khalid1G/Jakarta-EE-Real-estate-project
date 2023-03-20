@@ -1,9 +1,11 @@
+<%@page import="Beans.User"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <% 
 	String pageName = (String)request.getAttribute("pageName");
 	String path = request.getContextPath() + "/agent/profile";
+	User currentUser = (User) request.getSession().getAttribute("user");
 %>
     
     <div class="card mb-5 mb-xl-10">
@@ -15,7 +17,7 @@
         <div
           class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative"
         >
-          <img src="<%= request.getContextPath() %>/view/assets/media/avatars/150-26.jpg" alt="image" />
+          <img src="<%= request.getContextPath() %>/view/assets/img/<%=  currentUser.getAvatar() %>" alt="image" />
           <div
             class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-white h-20px w-20px"
           ></div>
@@ -33,9 +35,8 @@
             <!--begin::Name-->
             <div class="d-flex align-items-center mb-2">
               <a
-                href="#"
                 class="text-gray-900 text-hover-primary fs-2 fw-bolder me-1"
-                >Max Smith</a
+                ><%= currentUser.getFullName() %></a
               >
             </div>
             <!--end::Name-->
@@ -89,7 +90,7 @@
                     ></path>
                   </svg>
                 </span>
-                <!--end::Svg Icon-->max@kt.com</span
+                <!--end::Svg Icon--><%= currentUser.getEmail() %></span
               >
             </div>
             <!--end::Info-->

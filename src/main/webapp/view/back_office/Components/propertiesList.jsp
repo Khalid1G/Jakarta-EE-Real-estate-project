@@ -1,3 +1,4 @@
+<%@page import="Beans.Image"%>
 <%@page import="java.util.List" %>
 	<%@page import="Beans.Immobiliers" %>
 		<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
@@ -51,7 +52,7 @@
 											<td>
 												<div class="d-flex align-items-center">
 													<div class="symbol symbol-45px me-5">
-														<img src="https://dchba.org/wp-content/uploads/2020/06/house-placeholder.png"
+														<img src="${pageContext.request.contextPath}/view/assets/img/<%= ((Image)imm.getImages().get(0)).getPath() %>"
 															alt="">
 													</div>
 													<div class="d-flex justify-content-start flex-column">

@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 import Beans.Immobiliers;
 import DAOs.ImagesDAO.ImageDAOImpl;
@@ -30,7 +31,11 @@ public class SinglePageServlet extends HttpServlet {
 			try {
 				long id = Long.parseLong(pathInfo.substring(1));
 
+				List<String> proprtyType = new ImmobiliersDAOImpl().getImmobilierAttribute("type");
+				
+				
 				Immobiliers immobilier = new ImmobiliersDAOImpl().getImmobilierById(id);
+				request.setAttribute("proprtyTypes", proprtyType);
 				request.setAttribute("immobilier", immobilier);
 				request.getRequestDispatcher("/view/front_office/details.jsp").forward(request, response);
 			} catch (Exception e) {

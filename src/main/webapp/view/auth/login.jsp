@@ -31,8 +31,8 @@
 </head>
 
 <body>
-	<c:if test="${ !empty sessionScope.auth }">
-		<c:redirect url="/" />
+	<c:if test="${ !empty sessionScope.user }">
+		<c:redirect url="/agent" />
 	</c:if>
 	<div class="d-lg-flex half flex-row-reverse">
 		<div class="bg order-1 order-md-2"

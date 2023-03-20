@@ -19,7 +19,6 @@
 
 <meta name="twitter:title"
 	content="Sublime Riad De 8 Ch, Prestations Exceptionnelles">
-<meta name="twitter:description" content="">
 
 <link media="all" type="text/css" rel="stylesheet"
 	href="https://www.marrakechimmobilier.ma/vendor/core/plugins/cookie-consent/css/cookie-consent.css?v=1.0.0">
@@ -68,9 +67,6 @@
 <link type="application/atom+xml" rel="alternate"
 	title="Properties feed"
 	href="https://www.marrakechimmobilier.ma/feed/properties">
-<link type="application/atom+xml" rel="alternate" title="Posts feed"
-	href="https://www.marrakechimmobilier.ma/feed/posts">
-
 
 <link
 	href="${pageContext.request.contextPath}/view/assets/img/favicon.ico"
@@ -120,8 +116,10 @@
 				<div class="featured_slick_gallery-slide">
 					<c:forEach items="${immobilier.images}" var="image">
 						<div class="featured_slick_padd">
-							<a href="${image.path}" class="mfp-gallery"> <img
-								src="${image.path}" class="img-fluid mx-auto"
+							<a href="${pageContext.request.contextPath}/view/assets/img/<c:out value="${image.path }">placeholderIHome.jpg</c:out>"
+							   class="mfp-gallery"> <img
+								src="${pageContext.request.contextPath}/view/assets/img/<c:out value="${image.path }">placeholderIHome.jpg</c:out>"
+								class="img-fluid mx-auto"
 								alt="Sublime Riad De 8 Ch, Prestations Exceptionnelles-1" />
 							</a>
 						</div>
@@ -142,17 +140,18 @@
 									<div class="pbw-flex-thumb">
 										<img class="img-fluid"
 											style="width: 200px;height: 200px;"
-											src="${immobilier.images[0].path }"
+<%-- 											src="${immobilier.images[0].path }" --%>
+				src="${pageContext.request.contextPath}/view/assets/img/<c:out value="${immobilier.images[0].path }">placeholderIHome.jpg</c:out>"
 											alt="Luxuryestate Marrakech">
 									</div>
 								</div>
 
 								<div class="pbw-flex">
-									<div class="prt-detail-title-desc">
+									<div class="prt-detail-title-desc ">
 										<div class="bg-primary rounded text-white ps-2 py-2 mb-4">
 											${immobilier.listing_type}</div>
 
-										<h3>${immobilier.title }</h3>
+										<h3 class="d-inline-block text-truncate" style="max-width: 300px;">${immobilier.title }</h3>
 										<p>
 											<i
 												class="fa fa-map-marker-alt text-primary me-2 text-truncate"></i>
@@ -266,9 +265,11 @@
 
 											<c:forEach items="${immobilier.images}" var="image">
 												<li><a
-													href="${image.path}"
-													class="mfp-gallery"> <img src="${image.path}"
-														data-src="${image.path}"
+													href="${pageContext.request.contextPath}/view/assets/img/<c:out value="${image.path }">placeholderIHome.jpg</c:out>"
+													class="mfp-gallery"> <img 
+													src="${pageContext.request.contextPath}/view/assets/img/<c:out value="${image.path }">placeholderIHome.jpg</c:out>"
+<%-- 													src="${pageContext.request.contextPath}/view/assets/img/<c:out value="${image.path }">placeholderIHome.jpg</c:out>" --%>
+														data-src="${pageContext.request.contextPath}/view/assets/img/<c:out value="${image.path }">placeholderIHome.jpg</c:out>"
 														class="img-fluid mx-auto lazy"
 														alt="Sublime Riad De 8 Ch, Prestations Exceptionnelles-1" />
 												</a></li>
@@ -363,8 +364,7 @@
 		src="https://www.marrakechimmobilier.ma/themes/resido/plugins/bootstrap/bootstrap.min.js"></script>
 	<script
 		src="https://www.marrakechimmobilier.ma/themes/resido/plugins/rangeslider.js"></script>
-	<script
-		src="https://www.marrakechimmobilier.ma/themes/resido/plugins/select2.min.js"></script>
+
 	<script
 		src="https://www.marrakechimmobilier.ma/themes/resido/plugins/jquery.magnific-popup.min.js"></script>
 	<script
@@ -391,33 +391,7 @@
 		src="https://www.marrakechimmobilier.ma/themes/resido/js/property.js"></script>
 	<script
 		src="https://www.marrakechimmobilier.ma/themes/resido/plugins/jquery-bar-rating/jquery.barrating.min.js"></script>
-	<script
-		src="https://www.marrakechimmobilier.ma/vendor/core/plugins/cookie-consent/js/cookie-consent.js?v=1.0.0"></script>
-	<script
-		src="https://www.marrakechimmobilier.ma/vendor/core/plugins/language/js/language-public.js?v=1.0.0"></script>
-
-
-
-	<div class="js-cookie-consent cookie-consent cookie-consent-full-width"
-		style="background-color: #000000 !important; color: #FFFFFF !important;">
-		<div class="cookie-consent-body" style="max-width: 1170px;">
-			<span class="cookie-consent__message"> Your experience on this
-				site will be improved by allowing cookies <a
-				href="http://resido.local/cookie-policy">Cookie Policy</a>
-			</span>
-
-			<button class="js-cookie-consent-agree cookie-consent__agree"
-				style="background-color: #000000 !important; color: #FFFFFF !important; border: 1px solid #FFFFFF !important;">
-				Allow cookies</button>
-		</div>
-	</div>
-	<div data-site-cookie-name="cookie_for_consent"></div>
-	<div data-site-cookie-lifetime="7300"></div>
-	<div data-site-cookie-domain="www.marrakechimmobilier.ma"></div>
-	<div data-site-session-secure=""></div>
-
-
-
+	
 	<script>
 		$('#select-type').parent().parent().addClass('simple')
 	</script>

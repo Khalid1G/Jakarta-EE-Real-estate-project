@@ -1,3 +1,7 @@
+<%@page import="Beans.User"%>
+<%
+	User auth = (User) request.getSession().getAttribute("user");
+%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <div id="kt_header" class="header align-items-stretch">
         <!--begin::Container-->
@@ -45,7 +49,7 @@
                             <!--begin::Menu wrapper-->
                             <div class="cursor-pointer symbol symbol-30px symbol-md-40px" data-kt-menu-trigger="click"
                                 data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
-                                <img src="<%= request.getContextPath() %>/view/assets/media/avatars/150-26.jpg"
+                                <img src="<%= request.getContextPath()%>/view/assets/img/<%= auth.getAvatar() %>"
                                     alt="image" />
                             </div>
                             <!--begin::Menu-->
@@ -57,17 +61,17 @@
                                         <!--begin::Avatar-->
                                         <div class="symbol symbol-50px me-5">
                                             <img alt="Logo"
-                                                src="<%= request.getContextPath() %>/view/assets/media/avatars/150-26.jpg" />
+                                                src="<%= request.getContextPath()%>/view/assets/img/<%= auth.getAvatar() %>" />
                                         </div>
                                         <!--end::Avatar-->
                                         <!--begin::Username-->
                                         <div class="d-flex flex-column">
-                                            <div class="fw-bolder d-flex align-items-center fs-5">Max Smith
+                                            <div class="fw-bolder d-flex align-items-center fs-5"><%= auth.getFullName() %>
                                                 <span
-                                                    class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">Pro</span>
+                                                    class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">Agent</span>
                                             </div>
                                             <a href="#"
-                                                class="fw-bold text-muted text-hover-primary fs-7">max@kt.com</a>
+                                                class="fw-bold text-muted text-hover-primary fs-7"><%= auth.getEmail() %></a>
                                         </div>
                                         <!--end::Username-->
                                     </div>
@@ -94,7 +98,7 @@
                                 <!--end::Menu separator-->
                                 <!--begin::Menu item-->
                                 <div class="menu-item px-5">
-                                    <a href="../../demo6/dist/authentication/flows/basic/sign-in.html"
+                                    <a href="${pageContext.request.contextPath}/logout"
                                         class="menu-link px-5">Sign Out</a>
                                 </div>
                                 <!--end::Menu item-->

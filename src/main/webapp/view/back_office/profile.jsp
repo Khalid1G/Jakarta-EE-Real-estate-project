@@ -25,7 +25,7 @@ pageEncoding="UTF-8"%> <%@ include file="./Partials/topPage.jsp" %>
 			<!--end::Label-->
 			<!--begin::Col-->
 			<div class="col-lg-8">
-				<span class="fw-bolder fs-6 text-gray-800">Max Smith</span>
+				<span class="fw-bolder fs-6 text-gray-800"><%= currentUser.getFullName() %></span>
 			</div>
 			<!--end::Col-->
 		</div>
@@ -38,7 +38,7 @@ pageEncoding="UTF-8"%> <%@ include file="./Partials/topPage.jsp" %>
 			<!--end::Label-->
 			<!--begin::Col-->
 			<div class="col-lg-8 d-flex align-items-center">
-				<span class="fw-bolder fs-6 text-gray-800 me-2">044 3276 454 935</span>
+				<span class="fw-bolder fs-6 text-gray-800 me-2"><%= currentUser.getTel() %></span>
 			</div>
 			<!--end::Col-->
 		</div>

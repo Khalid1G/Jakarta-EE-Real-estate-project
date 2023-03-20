@@ -6,7 +6,7 @@ interface UserDAO{
     public User getUserById(long id);
     public User register(User user);
     public User getUserByEmail(String email);
-    public void updateUser(User user);
+    public boolean updateUser(User user);
     public void deleteUser(Long user_id);
 
 

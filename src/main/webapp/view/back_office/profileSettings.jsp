@@ -21,7 +21,7 @@
 				<div id="kt_account_profile_details" class="collapse show">
 					<!--begin::Form-->
 					<form id="kt_account_profile_details_form" class="form fv-plugins-bootstrap5 fv-plugins-framework"
-						novalidate="novalidate">
+						novalidate="novalidate" action="" method="POST" enctype="multipart/form-data">
 						<!--begin::Card body-->
 						<div class="card-body border-top p-9">
 							<!--begin::Input group-->
@@ -36,7 +36,7 @@
 										style="background-image: url(<%= request.getContextPath()%>/view/assets/media/avatars/blank.png)">
 										<!--begin::Preview existing avatar-->
 										<div class="image-input-wrapper w-125px h-125px"
-											style="background-image: url(<%= request.getContextPath()%>/view/assets/media/avatars/150-26.jpg)"></div>
+											style="background-image: url(<%= request.getContextPath()%>/view/assets/img/<%= currentUser.getAvatar() %>)"></div>
 										<!--end::Preview existing avatar-->
 										<!--begin::Label-->
 										<label
@@ -45,7 +45,7 @@
 											data-bs-original-title="Change avatar">
 											<i class="bi bi-pencil-fill fs-7"></i>
 											<!--begin::Inputs-->
-											<input type="file" name="avatar" accept=".png, .jpg, .jpeg">
+											<input type="file" name="avatar">
 											<input type="hidden" name="avatar_remove">
 											<!--end::Inputs-->
 										</label>
@@ -88,7 +88,7 @@
 										<div class="col-lg-6 fv-row fv-plugins-icon-container">
 											<input type="text" name="fname"
 												class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
-												placeholder="First name" value="Max">
+												placeholder="First name" value="<%= currentUser.getPrenom() %>">
 											<div class="fv-plugins-message-container invalid-feedback"></div>
 										</div>
 										<!--end::Col-->
@@ -96,7 +96,7 @@
 										<div class="col-lg-6 fv-row fv-plugins-icon-container">
 											<input type="text" name="lname"
 												class="form-control form-control-lg form-control-solid"
-												placeholder="Last name" value="Smith">
+												placeholder="Last name" value="<%= currentUser.getNom() %>">
 											<div class="fv-plugins-message-container invalid-feedback"></div>
 										</div>
 										<!--end::Col-->
@@ -120,7 +120,7 @@
 								<div class="col-lg-8 fv-row fv-plugins-icon-container">
 									<input type="tel" name="phone"
 										class="form-control form-control-lg form-control-solid"
-										placeholder="Phone number" value="044 3276 454 935">
+										placeholder="Phone number" value="<%= currentUser.getTel() %>">
 									<div class="fv-plugins-message-container invalid-feedback"></div>
 								</div>
 								<!--end::Col-->

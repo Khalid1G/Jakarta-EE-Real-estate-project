@@ -55,7 +55,7 @@
     <servlet-name>PropertyServlet</servlet-name>
     <url-pattern>/agent/properties</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <description></description>
     <display-name>ProfileServlet</display-name>
     <servlet-name>ProfileServlet</servlet-name>
@@ -105,7 +105,6 @@
     <servlet-name>PropertyDeleteServlet</servlet-name>
     <url-pattern>/properties/delete</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>SinglePageServlet</display-name>
@@ -126,9 +125,17 @@
     <servlet-name>SignUpServlet</servlet-name>
     <url-pattern>/SignUpServlet</url-pattern>
   </servlet-mapping>
-  
-  
   <session-config>
-  <session-timeout>300</session-timeout> <!-- Session timeout in minutes -->
-</session-config>
+    <session-timeout>300</session-timeout>
+  </session-config>
+  <servlet>
+    <description></description>
+    <display-name>Logout</display-name>
+    <servlet-name>Logout</servlet-name>
+    <servlet-class>controller.auth.Logout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Logout</servlet-name>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
 </web-app>

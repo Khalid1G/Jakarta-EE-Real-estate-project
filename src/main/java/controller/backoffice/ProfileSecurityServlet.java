@@ -6,12 +6,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import utilsBeans.PassBasedEnc;
 
 import java.io.IOException;
 import java.util.List;
 
 import Beans.User;
 import DAOs.ImmobiliersDAO.ImmobiliersDAOImpl;
+import DAOs.userDAO.UserDAOImpl;
 
 /**
  * Servlet implementation class ProfileSecurityServlet
@@ -54,8 +56,42 @@ public class ProfileSecurityServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		User user = null;
+		HttpSession session = request.getSession();
+		if (session == null || session.getAttribute("user") == null) {
+		    response.sendRedirect(request.getContextPath()+"/login");
+		} else {
+		    user = (User) session.getAttribute("user");
+		    System.out.println(user);
+		}
+		if(user != null) {
+			String email = request.getParameter("email");
+			String currentPassword = request.getParameter("currentpassword");
+			String newPassword = request.getParameter("newpassword");
+			String confirmPassword = request.getParameter("confirmpassword");
+			
+			if(currentPassword != null) {
+				String saltvalue = user.getSalt();
+				String encryptedpassword = user.getPassword();
+
+				Boolean status = PassBasedEnc.verifyUserPassword(currentPassword, encryptedpassword, saltvalue);
+
+				if (status) {
+					if(email != null) {
+						user.setEmail(email);
+					}
+					if(newPassword != null && confirmPassword != null && confirmPassword.equals(newPassword)) {
+						String saltvalue_sec = PassBasedEnc.getSaltvalue(30);
+						String encryptedpassword_sec = PassBasedEnc.generateSecurePassword(newPassword, saltvalue);
+						user.setSalt(saltvalue_sec);
+						user.setPassword(encryptedpassword_sec);
+					}
+				}
+				new UserDAOImpl().updateUser(user);
+			}
+			response.sendRedirect(request.getRequestURI());
+			return;
+		}
 	}
 
 	/**

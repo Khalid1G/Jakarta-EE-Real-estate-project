@@ -229,7 +229,7 @@
 								<!--end::Label-->
 								<!--begin::Input-->
 								<div class="position-relative">
-									<input type="file" id="images" class="filepond" name="filepond" multiple
+									<input type="file" id="images1" class="filepond" name="filepond" multiple
 										data-max-file-size="100MB" />
 									<span class="text-danger fw-boldest"></span>
 								</div>
